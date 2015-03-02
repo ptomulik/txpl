@@ -1,0 +1,89 @@
+// Copyright (C) 2015, Pawel Tomulik <ptomulik@meil.pw.edu.pl>
+//
+// Distributed under the Boost Software License, Version 1.0.
+// (See accompanying file LICENSE_1_0.txt or copy at
+//  http://www.boost.org/LICENSE_1_0.txt)
+
+// txpl/vm/eval_impl_operation.hpp.hpp
+
+/** // doc: txpl/vm/eval_impl_operation.hpp.hpp {{{
+ * \file txpl/vm/eval_impl_operation.hpp.hpp
+ * \todo Write documentation
+ */ // }}}
+#ifndef TXPL_VM_EVAL_IMPL_OPERATION_HPP
+#define TXPL_VM_EVAL_IMPL_OPERATION_HPP
+
+#include <txpl/ast/nodes.hpp>
+#include <txpl/vm/eval.hpp>
+#include <txpl/vm/eval_operation.hpp>
+
+namespace txpl { namespace vm {
+/** // doc: eval_impl<ast::operation<Level>> {{{
+ * \todo Write documentation
+ */ // }}}
+template<typename Iterator, typename BasicTypes, size_t Level>
+struct eval_impl<ast::operation<Iterator, BasicTypes, Level> >
+{
+  /** // doc: node_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef ast::operation<Iterator, BasicTypes, Level> node_type;
+  /** // doc: operator_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef typename node_type::operator_type operator_type;
+  /** // doc: expr_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef typename node_type::expr_type expr_type;
+  /** // doc: apply() {{{
+   * \todo Write documentation
+   */ // }}}
+  template<typename Context, typename Result, typename Ehandler>
+  static bool
+  apply(node_type const& node, Context const& context, Result& result, Ehandler ehandler)
+  {
+    Result rhs;
+    if(!eval(node.expr, context, rhs, ehandler)) return false;
+    return eval_operation<Level, BasicTypes>(node.operator_, result, rhs, ehandler);
+  }
+};
+/** // doc: eval_impl<ast::operation<14ul>> {{{
+ * \todo Write documentation
+ */ // }}}
+template<typename Iterator, typename BasicTypes>
+struct eval_impl<ast::operation<Iterator, BasicTypes, 14ul> >
+{
+  /** // doc: node_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef ast::operation<Iterator, BasicTypes, 14ul> node_type;
+  /** // doc: operator_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef typename node_type::operator_type operator_type;
+  /** // doc: expr_type {{{
+   * \todo Write documentation
+   */ // }}}
+  typedef typename node_type::expr_type expr_type;
+  /** // doc: apply() {{{
+   * \todo Write documentation
+   */ // }}}
+  template<typename Context, typename Result, typename Ehandler>
+  static bool
+  apply(node_type const& node, Context const& context, Result& result, Ehandler ehandler)
+  {
+    Result rhs[2];
+    if(!eval(node.expr[0], context, rhs[0], ehandler)) return false;
+    if(node.operator_ == '?')
+      {
+        if(!eval(node.expr[1], context, rhs[1], ehandler)) return false;
+      }
+    return eval_operation<14ul, BasicTypes>(node.operator_, result, rhs, ehandler);
+  }
+};
+} } // end namespace txpl::vm
+
+#endif /* TXPL_VM_EVAL_IMPL_OPERATION_HPP */
+// vim: set expandtab tabstop=2 shiftwidth=2:
+// vim: set foldmethod=marker foldcolumn=4:

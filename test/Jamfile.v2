@@ -1,0 +1,114 @@
+# Copyright (C) 2014, Pawel Tomulik <ptomulik@meil.pw.edu.pl>
+# 
+# Distributed under the Boost Software License, Version 1.0.
+# (See accompanying file LICENSE_1_0.txt or copy at
+# http://www.boost.org/LICENSE_1_0.txt)
+
+import testing ;
+
+project
+  : requirements
+    <warnings>all
+    <warnings-as-errors>on
+    <include>.
+    <toolset>gcc:<cxxflags>-std=c++11
+    <toolset>gcc:<cxxflags>-Wextra
+    <toolset>gcc:<cxxflags>-pedantic
+    <toolset>gcc:<linkflags>-lboost_unit_test_framework
+    <toolset>clang:<cxxflags>-std=c++11
+    <toolset>clang:<cxxflags>-Wextra
+    <toolset>clang:<cxxflags>-pedantic
+    <toolset>clang:<linkflags>-lboost_unit_test_framework
+    <define>BOOST_TEST_DYN_LINK=1
+  : build-dir bin.v2
+  ;
+
+run txpl/ast/node_test.cpp                       : : : : txpl/ast/node_test ;
+run txpl/ast/nodes_test.cpp                      : : : : txpl/ast/nodes_test ;
+run txpl/lexer/get_char_test.cpp                 : : : : txpl/lexer/get_char_test ;
+run txpl/lexer/get_content_test.cpp              : : : : txpl/lexer/get_content_test ;
+run txpl/lexer/get_dec_digit_test.cpp            : : : : txpl/lexer/get_dec_digit_test ;
+run txpl/lexer/get_dec_number_test.cpp           : : : : txpl/lexer/get_dec_number_test ;
+run txpl/lexer/get_hex_digit_test.cpp            : : : : txpl/lexer/get_hex_digit_test ;
+run txpl/lexer/get_hex_number_test.cpp           : : : : txpl/lexer/get_hex_number_test ;
+run txpl/lexer/get_int_test.cpp                  : : : : txpl/lexer/get_int_test ;
+run txpl/lexer/get_oct_digit_test.cpp            : : : : txpl/lexer/get_oct_digit_test ;
+run txpl/lexer/get_oct_number_test.cpp           : : : : txpl/lexer/get_oct_number_test ;
+run txpl/lexer/get_qchar_test.cpp                : : : : txpl/lexer/get_qchar_test ;
+run txpl/lexer/get_qregex_test.cpp               : : : : txpl/lexer/get_qregex_test ;
+run txpl/lexer/get_qstring_test.cpp              : : : : txpl/lexer/get_qstring_test ;
+run txpl/lexer/get_real_test.cpp                 : : : : txpl/lexer/get_real_test ;
+run txpl/lexer/get_regex_char_test.cpp           : : : : txpl/lexer/get_regex_char_test ;
+run txpl/lexer/get_word_test.cpp                 : : : : txpl/lexer/get_word_test ;
+run txpl/lexer/token_t_test.cpp                  : : : : txpl/lexer/token_t_test ;
+run txpl/lexer/token_test.cpp                    : : : : txpl/lexer/token_test ;
+run txpl/lexer/tokenize_test.cpp                 : : : : txpl/lexer/tokenize_test ;
+run txpl/lexer/try_char_test.cpp                 : : : : txpl/lexer/try_char_test ;
+run txpl/lexer/try_dec_digit_test.cpp            : : : : txpl/lexer/try_dec_digit_test ;
+run txpl/lexer/try_dec_number_test.cpp           : : : : txpl/lexer/try_dec_number_test ;
+run txpl/lexer/try_hex_digit_test.cpp            : : : : txpl/lexer/try_hex_digit_test ;
+run txpl/lexer/try_hex_number_test.cpp           : : : : txpl/lexer/try_hex_number_test ;
+run txpl/lexer/try_int_test.cpp                  : : : : txpl/lexer/try_int_test ;
+run txpl/lexer/try_oct_digit_test.cpp            : : : : txpl/lexer/try_oct_digit_test ;
+run txpl/lexer/try_oct_number_test.cpp           : : : : txpl/lexer/try_oct_number_test ;
+run txpl/lexer/try_qchar_test.cpp                : : : : txpl/lexer/try_qchar_test ;
+run txpl/lexer/try_qregex_test.cpp               : : : : txpl/lexer/try_qregex_test ;
+run txpl/lexer/try_qstring_test.cpp              : : : : txpl/lexer/try_qstring_test ;
+run txpl/lexer/try_real_test.cpp                 : : : : txpl/lexer/try_real_test ;
+run txpl/lexer/try_regex_char_test.cpp           : : : : txpl/lexer/try_regex_char_test ;
+run txpl/lexer/try_spaces_test.cpp               : : : : txpl/lexer/try_spaces_test ;
+run txpl/lexer/try_token_test.cpp                : : : : txpl/lexer/try_token_test ;
+run txpl/lexer/try_word_char_test.cpp            : : : : txpl/lexer/try_word_char_test ;
+run txpl/lexer/try_word_test.cpp                 : : : : txpl/lexer/try_word_test ;
+run txpl/parser/parse_impl_braced_expr_test.cpp  : : : : txpl/parser/parse_impl_braced_expr_test ;
+run txpl/parser/parse_impl_expr0_test.cpp        : : : : txpl/parser/parse_impl_expr0_test ;
+run txpl/parser/parse_impl_expr5_test.cpp        : : : : txpl/parser/parse_impl_expr5_test ;
+run txpl/parser/parse_impl_expr6_test.cpp        : : : : txpl/parser/parse_impl_expr6_test ;
+run txpl/parser/parse_impl_expr7_test.cpp        : : : : txpl/parser/parse_impl_expr7_test ;
+run txpl/parser/parse_impl_expr8_test.cpp        : : : : txpl/parser/parse_impl_expr8_test ;
+run txpl/parser/parse_impl_expr9_test.cpp        : : : : txpl/parser/parse_impl_expr9_test ;
+run txpl/parser/parse_impl_expr10_test.cpp       : : : : txpl/parser/parse_impl_expr10_test ;
+run txpl/parser/parse_impl_expr11_test.cpp       : : : : txpl/parser/parse_impl_expr11_test ;
+run txpl/parser/parse_impl_expr12_test.cpp       : : : : txpl/parser/parse_impl_expr12_test ;
+run txpl/parser/parse_impl_expr13_test.cpp       : : : : txpl/parser/parse_impl_expr13_test ;
+run txpl/parser/parse_impl_expr14_test.cpp       : : : : txpl/parser/parse_impl_expr14_test ;
+run txpl/parser/parse_impl_literal_test.cpp      : : : : txpl/parser/parse_impl_literal_test ;
+run txpl/parser/parse_impl_name_test.cpp         : : : : txpl/parser/parse_impl_name_test ;
+run txpl/parser/parse_impl_unary_expr_test.cpp   : : : : txpl/parser/parse_impl_unary_expr_test ;
+run txpl/vm/basic_types_test.cpp                 : : : : txpl/vm/basic_types_test ;
+run txpl/vm/disambiguate_test.cpp                : : : : txpl/vm/disambiguate_test ;
+run txpl/vm/disambiguate_type_test.cpp           : : : : txpl/vm/disambiguate_type_test ;
+run txpl/vm/eval_binary_and_test.cpp             : : : : txpl/vm/eval_binary_and_test ;
+run txpl/vm/eval_binary_bitand_test.cpp          : : : : txpl/vm/eval_binary_bitand_test ;
+run txpl/vm/eval_binary_bitor_test.cpp           : : : : txpl/vm/eval_binary_bitor_test ;
+run txpl/vm/eval_binary_div_test.cpp             : : : : txpl/vm/eval_binary_div_test ;
+run txpl/vm/eval_binary_eq_test.cpp              : : : : txpl/vm/eval_binary_eq_test ;
+run txpl/vm/eval_binary_ge_test.cpp              : : : : txpl/vm/eval_binary_ge_test ;
+run txpl/vm/eval_binary_gt_test.cpp              : : : : txpl/vm/eval_binary_gt_test ;
+run txpl/vm/eval_binary_le_test.cpp              : : : : txpl/vm/eval_binary_le_test ;
+run txpl/vm/eval_binary_lshift_test.cpp          : : : : txpl/vm/eval_binary_lshift_test ;
+run txpl/vm/eval_binary_lt_test.cpp              : : : : txpl/vm/eval_binary_lt_test ;
+run txpl/vm/eval_binary_minus_test.cpp           : : : : txpl/vm/eval_binary_minus_test ;
+run txpl/vm/eval_binary_mod_test.cpp             : : : : txpl/vm/eval_binary_mod_test ;
+run txpl/vm/eval_binary_mul_test.cpp             : : : : txpl/vm/eval_binary_mul_test ;
+run txpl/vm/eval_binary_neq_test.cpp             : : : : txpl/vm/eval_binary_neq_test ;
+run txpl/vm/eval_binary_or_test.cpp              : : : : txpl/vm/eval_binary_or_test ;
+run txpl/vm/eval_binary_plus_test.cpp            : : : : txpl/vm/eval_binary_plus_test ;
+run txpl/vm/eval_binary_rshift_test.cpp          : : : : txpl/vm/eval_binary_rshift_test ;
+run txpl/vm/eval_binary_xor_test.cpp             : : : : txpl/vm/eval_binary_xor_test ;
+run txpl/vm/eval_unary_op_test.cpp               : : : : txpl/vm/eval_unary_op_test ;
+run txpl/vm/op_t_test.cpp                        : : : : txpl/vm/op_t_test ;
+run txpl/vm/object_erase_test.cpp                : : : : txpl/vm/object_erase_test ;
+run txpl/vm/object_find_test.cpp                 : : : : txpl/vm/object_find_test ;
+run txpl/vm/object_insert_test.cpp               : : : : txpl/vm/object_insert_test ;
+run txpl/vm/object_test.cpp                      : : : : txpl/vm/object_test ;
+run txpl/vm/symbol_test.cpp                      : : : : txpl/vm/symbol_test ;
+run txpl/vm/scope_erase_test.cpp                 : : : : txpl/vm/scope_erase_test ;
+run txpl/vm/scope_find_test.cpp                  : : : : txpl/vm/scope_find_test ;
+run txpl/vm/scope_insert_test.cpp                : : : : txpl/vm/scope_insert_test ;
+run txpl/vm/scope_lookup_test.cpp                : : : : txpl/vm/scope_lookup_test ;
+run txpl/vm/scope_test.cpp                       : : : : txpl/vm/scope_test ;
+run txpl/vm/tree_eraser_test.cpp                 : : : : txpl/vm/tree_eraser_test ;
+run txpl/vm/tree_finder_test.cpp                 : : : : txpl/vm/tree_finder_test ;
+run txpl/vm/tree_inserter_test.cpp               : : : : txpl/vm/tree_inserter_test ;
+run txpl/vm/value_test.cpp                       : : : : txpl/vm/value_test ;
