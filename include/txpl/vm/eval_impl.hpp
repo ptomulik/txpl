@@ -8,7 +8,7 @@
 
 /** // doc: txpl/vm/eval_impl.hpp {{{
  * \file txpl/vm/eval_impl.hpp
- * \todo Write documentation
+ * \brief Includes all the specializations of \ref txpl::vm::eval_impl "vm::eval_impl<>"
  */ // }}}
 #ifndef TXPL_VM_EVAL_IMPL_HPP
 #define TXPL_VM_EVAL_IMPL_HPP
@@ -16,8 +16,9 @@
 #include <txpl/vm/eval_impl_expr.hpp>
 #include <txpl/vm/eval_impl_operation.hpp>
 #include <txpl/vm/eval_impl_unary_expr.hpp>
+#include <txpl/vm/eval_impl_array_expr.hpp>
 #include <txpl/vm/eval_impl_braced_expr.hpp>
-#include <txpl/vm/eval_impl_name.hpp>
+#include <txpl/vm/eval_impl_symbol.hpp>
 #include <txpl/vm/eval_impl_literal.hpp>
 
 #endif /* TXPL_VM_EVAL_IMPL_HPP */

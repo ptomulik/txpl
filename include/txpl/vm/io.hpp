@@ -8,7 +8,7 @@
 
 /** // doc: txpl/vm/io.hpp {{{
  * \file txpl/vm/io.hpp
- * \todo Write documentation
+ * \brief Provides I/O stream operations for several custom data types
  */ // }}}
 #ifndef TXPL_VM_IO_HPP
 #define TXPL_VM_IO_HPP

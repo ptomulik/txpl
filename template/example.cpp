@@ -13,10 +13,11 @@
 // [Code]
 #include <txpl/unit.hpp>
 
-// TODO: Write your code here
+int main() { return 0; }
 // [Code]
 
-int main() { return 0; }
+/* [Output] *
+ * [Output] */
 
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:

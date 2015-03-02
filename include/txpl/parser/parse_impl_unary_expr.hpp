@@ -21,27 +21,27 @@ namespace txpl { namespace parser {
 /** // doc: parse_impl<ast::unary_expr> {{{
  * \todo Write documentation
  */ // }}}
-template<typename Iterator, typename BasicTypes>
-struct parse_impl<ast::unary_expr<Iterator, BasicTypes> >
+template<typename Iterator, typename Value>
+struct parse_impl<ast::unary_expr<Iterator, Value> >
 {
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef ast::unary_expr<Iterator, BasicTypes> node_type;
+  typedef ast::unary_expr<Iterator, Value> node_type;
   /** // doc: operator_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename ast::unary_expr<Iterator, BasicTypes>::operator_type operator_type;
+  typedef typename ast::unary_expr<Iterator, Value>::operator_type operator_type;
   /** // doc: expr_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename ast::unary_expr<Iterator, BasicTypes>::expr_type expr_type;
+  typedef typename ast::unary_expr<Iterator, Value>::expr_type expr_type;
   /** // doc: apply() {{{
    * \todo Write documentation
    */ // }}}
   template<typename Ehandler>
   static bool
-  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler& eh)
+  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler f)
   {
     if(first == last) return false;
 
@@ -51,10 +51,10 @@ struct parse_impl<ast::unary_expr<Iterator, BasicTypes> >
     operator_type op = static_cast<operator_type>(first->id());
     if(!(op == '+' || op == '-' || op == '!' || op == '~')) return false;
     Iterator it = ++first;
-    if(!parse(first, last, node.expr, eh))
+    if(!parse(first, last, node.expr, f))
       {
         if(it == first)
-          eh(first, last, "expected sub-expression");
+          f(first, last, "expected sub-expression");
         return false;
       }
     node.operator_ = op;

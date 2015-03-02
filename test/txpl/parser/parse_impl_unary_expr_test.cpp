@@ -13,6 +13,8 @@
 #include <txpl/parser/parse_impl_unary_expr.hpp>
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/lexer/token.hpp>
+#include <txpl/ast/squash_heads.hpp>
+#include <boost/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
 {
@@ -53,7 +55,7 @@ BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
     real_type x = real_type{.456};
     BOOST_CHECK(parse(first, last, u));
     BOOST_CHECK(u.operator_ == '-');
-    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(u.expr.attrib));
+    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(ast::squash_heads(u.expr)));
     BOOST_CHECK_NO_THROW(x = get<real_type>(l.value));
     BOOST_CHECK_EQUAL(x, real_type{.123});
     BOOST_CHECK(first == last);
@@ -72,7 +74,7 @@ BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
     real_type x = real_type{.456};
     BOOST_CHECK(parse(first, last, u));
     BOOST_CHECK(u.operator_ == '+');
-    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(u.expr.attrib));
+    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(ast::squash_heads(u.expr)));
     BOOST_CHECK_NO_THROW(x = get<real_type>(l.value));
     BOOST_CHECK_EQUAL(x, real_type{.123});
     BOOST_CHECK(first == last);
@@ -91,7 +93,7 @@ BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
     char_type x = char_type{'z'};
     BOOST_CHECK(parse(first, last, u));
     BOOST_CHECK(u.operator_ == '!');
-    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(u.expr.attrib));
+    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(ast::squash_heads(u.expr)));
     BOOST_CHECK_NO_THROW(x = get<char_type>(l.value));
     BOOST_CHECK_EQUAL(x, 'a');
     BOOST_CHECK(first == last);
@@ -110,7 +112,7 @@ BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
     int_type x = int_type{456};
     BOOST_CHECK(parse(first, last, u));
     BOOST_CHECK(u.operator_ == '~');
-    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(u.expr.attrib));
+    BOOST_CHECK_NO_THROW(l = get<ast::literal<token_iterator> >(ast::squash_heads(u.expr)));
     BOOST_CHECK_NO_THROW(x = get<int_type>(l.value));
     BOOST_CHECK_EQUAL(x, 123);
     BOOST_CHECK(first == last);

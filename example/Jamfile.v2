@@ -8,6 +8,7 @@ import testing ;
 
 project
   : requirements
+    <include>.
     <warnings>all
     <warnings-as-errors>on
     <toolset>gcc:<cxxflags>-std=c++11
@@ -19,6 +20,23 @@ project
   : build-dir bin.v2
   ;
 
-exe txpl/parse1  : txpl/parse1.cpp ;
-exe txpl/eval1   : txpl/eval1.cpp ;
-#compile txpl/xxx.cpp                                   : : txpl/xxx ;
+exe txpl/vm/array1                : txpl/vm/array1.cpp ;
+exe txpl/vm/array_io1             : txpl/vm/array_io1.cpp ;
+exe txpl/vm/object_io1            : txpl/vm/object_io1.cpp ;
+exe txpl/vm/basic_types1          : txpl/vm/basic_types1.cpp ;
+exe txpl/vm/can_apply_binary_op1  : txpl/vm/can_apply_binary_op1.cpp ;
+exe txpl/vm/can_apply_ternary_op1 : txpl/vm/can_apply_ternary_op1.cpp ;
+exe txpl/vm/can_apply_unary_op1   : txpl/vm/can_apply_unary_op1.cpp ;
+exe txpl/vm/disambiguate1         : txpl/vm/disambiguate1.cpp ;
+exe txpl/vm/eval_binary_op1       : txpl/vm/eval_binary_op1.cpp ;
+exe txpl/vm/eval_ternary_op1      : txpl/vm/eval_ternary_op1.cpp ;
+exe txpl/vm/eval_unary_op1        : txpl/vm/eval_unary_op1.cpp ;
+exe txpl/vm/context1              : txpl/vm/context1.cpp ;
+exe txpl/vm/scope1                : txpl/vm/scope1.cpp ;
+exe txpl/parse1                   : txpl/parse1.cpp ;
+obj txpl/calc1/ehandler.o         : txpl/calc1/ehandler.cpp ;
+obj txpl/calc1/lexer.o            : txpl/calc1/lexer.cpp ;
+obj txpl/calc1/parser.o           : txpl/calc1/parser.cpp ;
+obj txpl/calc1/vm.o               : txpl/calc1/vm.cpp ;
+obj txpl/calc1/main.o             : txpl/calc1/main.cpp ;
+exe txpl/calc1/calc1              : txpl/calc1/ehandler.o txpl/calc1/lexer.o txpl/calc1/parser.o txpl/calc1/vm.o txpl/calc1/main.o ;

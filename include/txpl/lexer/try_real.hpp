@@ -8,7 +8,7 @@
 
 /** // doc: txpl/lexer/try_real.hpp {{{
  * \file txpl/lexer/try_real.hpp
- * \todo Write documentation
+ * \brief Implements \ref txpl::lexer::try_real() "lexer::try_real()"
  */ // }}}
 #ifndef TXPL_LEXER_TRY_REAL_HPP_INCLUDED
 #define TXPL_LEXER_TRY_REAL_HPP_INCLUDED
@@ -18,7 +18,29 @@
 
 namespace txpl { namespace lexer {
 /** // doc: try_exponent {{{
- * \todo Write documentation
+ * \ingroup LexerGroup
+ * \brief Scan for real number's exponent
+ *
+ * \param first   iterator pointing to the first character of the input to be
+ *                scanned,
+ * \param last    iterator pointing one after the last input character allowed
+ *                to be scanned,
+ * \returns `true` on success of `false` otherwise
+ *
+ * \par Description
+ *
+ * The function implements lexer rule \ref ExpressionSyntaxLexerRules "exp"
+ * without semantic value retrieval.
+ *
+ * This function scans the content between iterators \e first and \e last
+ * trying to recognize a real number's exponent. On success, the iterator \e
+ * first is moved to the next position after the last scanned input character.
+ * On error, the iterator \e first is moved to the character at which the error
+ * has been detected and the function returns `false`.
+ *
+ * \note This operation may leave un-scanned input characters and still be
+ *       successful, that is it is possible that ``first != last`` at exit
+ *       while the function returns `true`.
  */ // }}}
 template<typename Iterator>
 bool try_exponent(Iterator& first, Iterator const& last)
@@ -32,7 +54,29 @@ bool try_exponent(Iterator& first, Iterator const& last)
   return true;
 }
 /** // doc: try_real {{{
- * \todo Write documentation
+ * \ingroup LexerGroup
+ * \brief Scan for a real number
+ *
+ * \param first   iterator pointing to the first character of the input to be
+ *                scanned,
+ * \param last    iterator pointing one after the last input character allowed
+ *                to be scanned,
+ * \returns `true` on success of `false` otherwise
+ *
+ * \par Description
+ *
+ * The function implements lexer rule \ref ExpressionSyntaxLexerRules
+ * "real" without semantic value retrieval.
+ *
+ * This function scans the content between iterators \e first and \e last
+ * trying to recognize a real number. On success, the iterator \e first is
+ * moved to the next position after the last scanned input character.
+ * On error, the iterator \e first is moved to the character at which the error
+ * has been detected and the function returns `false`.
+ *
+ * \note This operation may leave un-scanned input characters and still be
+ *       successful, that is it is possible that ``first != last`` at exit
+ *       while the function returns `true`.
  */ // }}}
 template<typename Iterator>
 bool try_real(Iterator& first, Iterator const& last)

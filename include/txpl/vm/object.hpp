@@ -8,7 +8,7 @@
 
 /** // doc: txpl/vm/object.hpp {{{
  * \file txpl/vm/object.hpp
- * \todo Write documentation
+ * \brief Defines \ref txpl::vm::object "vm::object<>"
  */ // }}}
 #ifndef TXPL_VM_OBJECT_HPP
 #define TXPL_VM_OBJECT_HPP

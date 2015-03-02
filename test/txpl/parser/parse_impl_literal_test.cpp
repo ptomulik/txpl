@@ -13,6 +13,7 @@
 #include <txpl/parser/parse_impl_literal.hpp>
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/lexer/token.hpp>
+#include <boost/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse_impl_literal)
 {

@@ -15,7 +15,7 @@
 
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/vm/array_fwd.hpp>
-#include <txpl/vm/object_fwd.hpp>
+#include <txpl/vm/dict_fwd.hpp>
 #include <boost/variant/recursive_variant.hpp>
 
 namespace txpl { namespace vm {
@@ -32,7 +32,7 @@ using value = typename boost::make_recursive_variant<
     , typename BasicTypes::string_type
     , typename BasicTypes::regex_type
     , array_fwd<boost::recursive_variant_>
-    , object_fwd<boost::recursive_variant_>
+    , dict_fwd<boost::recursive_variant_>
 >::type;
 } } // end namespace txpl::vm
 

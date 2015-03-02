@@ -8,12 +8,14 @@
 
 /** // doc: txpl/ast/api.hpp {{{
  * \file txpl/ast/api.hpp
- * \todo Write documentation
+ * \brief Include all important headers that define the \ref AstGroup API
  */ // }}}
 #ifndef TXPL_AST_API_HPP
 #define TXPL_AST_API_HPP
 
 #include <txpl/ast/nodes.hpp>
+#include <txpl/ast/value.hpp>
+#include <txpl/ast/value_traits.hpp>
 
 #endif /* TXPL_AST_API_HPP */
 // vim: set expandtab tabstop=2 shiftwidth=2:

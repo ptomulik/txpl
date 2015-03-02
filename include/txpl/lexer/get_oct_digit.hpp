@@ -8,7 +8,7 @@
 
 /** // doc: txpl/lexer/get_oct_digit.hpp {{{
  * \file txpl/lexer/get_oct_digit.hpp
- * \todo Write documentation
+ * \brief Implements \ref txpl::lexer::get_oct_digit() "lexer::get_oct_digit()"
  */ // }}}
 #ifndef TXPL_LEXER_GET_OCT_DIGIT_HPP_INCLUDED
 #define TXPL_LEXER_GET_OCT_DIGIT_HPP_INCLUDED
@@ -17,7 +17,20 @@
 
 namespace txpl { namespace lexer {
 /** // doc: get_oct_digit() {{{
- * \todo Write documentation
+ * \ingroup LexerGroup
+ * \brief Retrieves an octal digit from input
+ *
+ * \param c input character
+ * \param result where to store the resultant digit, a mutable reference to
+ *        integer variable.
+ * \returns `true` on success or `false` otherwise
+ *
+ * \par Description
+ *
+ * If \e c is a valid octal digit, that is a character ``'0'`` through
+ * ``'7'``, then it gets converted to appropriate integer value and stored in
+ * \e result. Otherwise, the \e result remains untouched and the function
+ * returns `false`.
  */ // }}}
 template<typename CharT, typename T>
 bool get_oct_digit(CharT c, T& result)

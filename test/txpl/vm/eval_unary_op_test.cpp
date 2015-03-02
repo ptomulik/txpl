@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_CASE(plus_)
   typedef array<> array_type;
   typedef object<> object_type;
   value<> r;
-  auto op = eval_unary_op<op_t::plus_, basic_types<> >(r);
+  auto op = eval_unary_op<op_t::plus_>(r);
   {
     r = blank_type();
     const value<> v = char_type{'a'};
@@ -79,8 +79,8 @@ BOOST_AUTO_TEST_CASE(plus_)
   {
     r = blank_type();
     const value<> v = array_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(boost::apply_visitor(op, v));
+    BOOST_CHECK_NO_THROW(boost::get<array_type>(r));
   }
   {
     r = blank_type();
@@ -103,7 +103,7 @@ BOOST_AUTO_TEST_CASE(minus_)
   typedef object<> object_type;
 
   value<> r;
-  auto op = eval_unary_op<op_t::minus_, basic_types<> >(r);
+  auto op = eval_unary_op<op_t::minus_>(r);
   {
     r = blank_type();
     const value<> v = char_type{'a'};
@@ -151,8 +151,8 @@ BOOST_AUTO_TEST_CASE(minus_)
   {
     r = blank_type();
     const value<> v = array_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(boost::apply_visitor(op, v));
+    BOOST_CHECK_NO_THROW(boost::get<array_type>(r));
   }
   {
     r = blank_type();
@@ -174,7 +174,7 @@ BOOST_AUTO_TEST_CASE(not_)
   typedef array<> array_type;
   typedef object<> object_type;
   value<> r;
-  auto op = eval_unary_op<op_t::not_, basic_types<> >(r);
+  auto op = eval_unary_op<op_t::not_>(r);
   {
     r = blank_type();
     const value<> v = char_type{'a'};
@@ -222,8 +222,8 @@ BOOST_AUTO_TEST_CASE(not_)
   {
     r = blank_type();
     const value<> v = array_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(boost::apply_visitor(op, v));
+    BOOST_CHECK_NO_THROW(boost::get<array_type>(r));
   }
   {
     r = blank_type();
@@ -245,7 +245,7 @@ BOOST_AUTO_TEST_CASE(neg_)
   typedef array<> array_type;
   typedef object<> object_type;
   value<> r;
-  auto op = eval_unary_op<op_t::neg_, basic_types<> >(r);
+  auto op = eval_unary_op<op_t::neg_>(r);
   {
     r = blank_type();
     const value<> v = char_type{'a'};
@@ -291,8 +291,8 @@ BOOST_AUTO_TEST_CASE(neg_)
   {
     r = blank_type();
     const value<> v = array_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(boost::apply_visitor(op, v));
+    BOOST_CHECK_NO_THROW(boost::get<array_type>(r));
   }
   {
     r = blank_type();

@@ -11,10 +11,12 @@
 #ifndef TXPL_TEST_SKIP_PARSER_PARSE_IMPL_EXPR13
 
 #include <txpl/parser/parse_impl_expr.hpp>
-#include <txpl/ast/squash_heads.hpp>
 #include <txpl/lexer/token.hpp>
 #include <txpl/lexer/token_t.hpp>
-#include <txpl/vm/basic_types.hpp>
+#include <txpl/ast/basic_types.hpp>
+#include <txpl/ast/value.hpp>
+#include <txpl/ast/squash_heads.hpp>
+#include <boost/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse__expr_13__literal__op__literal)
 {
@@ -24,11 +26,11 @@ BOOST_AUTO_TEST_CASE(test__parse__expr_13__literal__op__literal)
 
   typedef lexer::token<> const* token_iterator;
 
-  ast::expr<token_iterator, vm::basic_types<>, 13> e;
+  ast::expr<token_iterator, ast::value<>, 13> e;
   ast::literal<token_iterator> l1;
   ast::literal<token_iterator> l2;
   {
-    typedef vm::basic_types<>::int_type int_type;
+    typedef ast::basic_types<>::int_type int_type;
     const char *beg[] = { "456",    "&&",      "123" };
     const char *end[] = { beg[0]+3, beg[1]+2, beg[2]+3 };
     lexer::token<> tok[] = {

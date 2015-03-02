@@ -20,9 +20,7 @@ namespace txpl { namespace lexer {
 template<typename CharT>
 constexpr int
 recognize_oct_digit(CharT c) noexcept
-{
-  return (c>=CharT{'0'} && c<=CharT{'7'}) ? int{'0'} : 0;
-}
+{ return (c>=CharT{'0'} && c<=CharT{'7'}) ? int{'0'} : 0; }
 } } // end namespace txpl::lexer
 
 #endif /* TXPL_LEXER_RECOGNIZE_OCT_DIGIT_HPP */

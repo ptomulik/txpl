@@ -3,27 +3,27 @@
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
-#define BOOST_TEST_MODULE test_txpl_parser_parse_impl_name
+#define BOOST_TEST_MODULE test_txpl_parser_parse_impl_symbol
 
 #include <txpl/test_config.hpp>
 #include <boost/test/unit_test.hpp>
 
-#ifndef TXPL_TEST_SKIP_PARSER_PARSE_IMPL_NAME
+#ifndef TXPL_TEST_SKIP_PARSER_PARSE_IMPL_SYMBOL
 
-#include <txpl/parser/parse_impl_name.hpp>
+#include <txpl/parser/parse_impl_symbol.hpp>
 #include <txpl/lexer/token.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse__name)
 {
   using namespace txpl::parser;
   using namespace txpl;
-  ast::name<lexer::token<> const*> n;
+  ast::symbol<lexer::token<> const*> n;
   {
     lexer::token<> tok;
     lexer::token<> const *first = &tok, *last = first;
-    n.value = "xyz";
+    n.name = "xyz";
     BOOST_CHECK(!parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "xyz");
+    BOOST_CHECK_EQUAL(n.name, "xyz");
     BOOST_CHECK(first == last);
   }
   {
@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     lexer::token<> const* first = &tok, *last = first + 1;
 
     BOOST_CHECK(parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "word0");
+    BOOST_CHECK_EQUAL(n.name, "word0");
     BOOST_CHECK(first == last);
   }
   {
@@ -43,9 +43,9 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     };
     lexer::token<> const* first = tok, *last = first + 1;
 
-    n.value = "xyz";
+    n.name = "xyz";
     BOOST_CHECK(!parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "xyz");
+    BOOST_CHECK_EQUAL(n.name, "xyz");
     BOOST_CHECK(first == last);
   }
   {
@@ -58,7 +58,7 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     lexer::token<> const* first = tok, *last = first + 2;
 
     BOOST_CHECK(parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "::word1");
+    BOOST_CHECK_EQUAL(n.name, "::word1");
     BOOST_CHECK(first == last);
   }
   {
@@ -70,9 +70,9 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     };
     lexer::token<> const* first = tok, *last = first + 2;
 
-    n.value = "xyz";
+    n.name = "xyz";
     BOOST_CHECK(!parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "xyz");
+    BOOST_CHECK_EQUAL(n.name, "xyz");
     BOOST_CHECK(first == last);
   }
   {
@@ -86,7 +86,7 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     lexer::token<> const* first = tok, *last = first + 3;
 
     BOOST_CHECK(parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "word0::word1");
+    BOOST_CHECK_EQUAL(n.name, "word0::word1");
     BOOST_CHECK(first == last);
   }
   {
@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(test__parse__name)
     lexer::token<> const* first = tok, *last = first + 4;
 
     BOOST_CHECK(parse(first, last, n));
-    BOOST_CHECK_EQUAL(n.value, "::word1::word2");
+    BOOST_CHECK_EQUAL(n.name, "::word1::word2");
     BOOST_CHECK(first == last);
   }
 }

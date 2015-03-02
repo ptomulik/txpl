@@ -25,6 +25,17 @@ project
 
 run txpl/ast/node_test.cpp                       : : : : txpl/ast/node_test ;
 run txpl/ast/nodes_test.cpp                      : : : : txpl/ast/nodes_test ;
+run txpl/ast/symbol_test.cpp                     : : : : txpl/ast/symbol_test ;
+run txpl/ast/literal_test.cpp                    : : : : txpl/ast/literal_test ;
+run txpl/ast/unary_expr_test.cpp                 : : : : txpl/ast/unary_expr_test ;
+run txpl/ast/operation_test.cpp                  : : : : txpl/ast/operation_test ;
+run txpl/ast/operation0_test.cpp                 : : : : txpl/ast/operation0_test ;
+run txpl/ast/operation14_test.cpp                : : : : txpl/ast/operation14_test ;
+run txpl/ast/expr_test.cpp                       : : : : txpl/ast/expr_test ;
+run txpl/ast/expr5_test.cpp                      : : : : txpl/ast/expr5_test ;
+run txpl/ast/expr3_test.cpp                      : : : : txpl/ast/expr3_test ;
+run txpl/ast/expr0_test.cpp                      : : : : txpl/ast/expr0_test ;
+run txpl/ast/braced_expr_test.cpp                : : : : txpl/ast/braced_expr_test ;
 run txpl/lexer/get_char_test.cpp                 : : : : txpl/lexer/get_char_test ;
 run txpl/lexer/get_content_test.cpp              : : : : txpl/lexer/get_content_test ;
 run txpl/lexer/get_dec_digit_test.cpp            : : : : txpl/lexer/get_dec_digit_test ;
@@ -62,6 +73,7 @@ run txpl/lexer/try_word_char_test.cpp            : : : : txpl/lexer/try_word_cha
 run txpl/lexer/try_word_test.cpp                 : : : : txpl/lexer/try_word_test ;
 run txpl/parser/parse_impl_braced_expr_test.cpp  : : : : txpl/parser/parse_impl_braced_expr_test ;
 run txpl/parser/parse_impl_expr0_test.cpp        : : : : txpl/parser/parse_impl_expr0_test ;
+run txpl/parser/parse_impl_expr2_test.cpp        : : : : txpl/parser/parse_impl_expr2_test ;
 run txpl/parser/parse_impl_expr5_test.cpp        : : : : txpl/parser/parse_impl_expr5_test ;
 run txpl/parser/parse_impl_expr6_test.cpp        : : : : txpl/parser/parse_impl_expr6_test ;
 run txpl/parser/parse_impl_expr7_test.cpp        : : : : txpl/parser/parse_impl_expr7_test ;
@@ -73,9 +85,10 @@ run txpl/parser/parse_impl_expr12_test.cpp       : : : : txpl/parser/parse_impl_
 run txpl/parser/parse_impl_expr13_test.cpp       : : : : txpl/parser/parse_impl_expr13_test ;
 run txpl/parser/parse_impl_expr14_test.cpp       : : : : txpl/parser/parse_impl_expr14_test ;
 run txpl/parser/parse_impl_literal_test.cpp      : : : : txpl/parser/parse_impl_literal_test ;
-run txpl/parser/parse_impl_name_test.cpp         : : : : txpl/parser/parse_impl_name_test ;
+run txpl/parser/parse_impl_symbol_test.cpp       : : : : txpl/parser/parse_impl_symbol_test ;
 run txpl/parser/parse_impl_unary_expr_test.cpp   : : : : txpl/parser/parse_impl_unary_expr_test ;
 run txpl/vm/basic_types_test.cpp                 : : : : txpl/vm/basic_types_test ;
+run txpl/vm/dict_test.cpp                        : : : : txpl/vm/dict_test ;
 run txpl/vm/disambiguate_test.cpp                : : : : txpl/vm/disambiguate_test ;
 run txpl/vm/disambiguate_type_test.cpp           : : : : txpl/vm/disambiguate_type_test ;
 run txpl/vm/eval_binary_and_test.cpp             : : : : txpl/vm/eval_binary_and_test ;

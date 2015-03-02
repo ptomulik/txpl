@@ -16,8 +16,9 @@
 #include <txpl/parser/parse_impl_expr.hpp>
 #include <txpl/parser/parse_impl_operation.hpp>
 #include <txpl/parser/parse_impl_unary_expr.hpp>
+#include <txpl/parser/parse_impl_array_expr.hpp>
 #include <txpl/parser/parse_impl_braced_expr.hpp>
-#include <txpl/parser/parse_impl_name.hpp>
+#include <txpl/parser/parse_impl_symbol.hpp>
 #include <txpl/parser/parse_impl_literal.hpp>
 
 #endif /* TXPL_PARSER_PARSE_IMPL_HPP */

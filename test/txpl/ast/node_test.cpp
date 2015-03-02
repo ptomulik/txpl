@@ -26,15 +26,6 @@ BOOST_AUTO_TEST_CASE(test__node__default_ctor)
   BOOST_CHECK_NO_THROW(node<const char*>());
 }
 
-BOOST_AUTO_TEST_CASE(test__node__ctor_1)
-{
-  using namespace txpl::ast;
-  const char *beg = "asd", *end = beg + 3;
-  node<const char*> n(beg, end);
-  BOOST_CHECK(n.begin() == beg);
-  BOOST_CHECK(n.end() == end);
-}
-
 BOOST_AUTO_TEST_CASE(test__node__set_range)
 {
   using namespace txpl::ast;

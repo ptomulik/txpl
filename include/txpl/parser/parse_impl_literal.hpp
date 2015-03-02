@@ -16,6 +16,7 @@
 #include <txpl/parser/parse_impl_fwd.hpp>
 #include <txpl/parser/parse_fwd.hpp>
 #include <txpl/ast/nodes.hpp>
+#include <txpl/ast/value_traits.hpp>
 #include <txpl/lexer/token_t.hpp>
 #include <txpl/lexer/get_qchar.hpp>
 #include <txpl/lexer/get_int.hpp>
@@ -27,44 +28,44 @@ namespace txpl { namespace parser {
 /** // doc: parse_impl<ast::literal> {{{
  * \todo Write documentation
  */ // }}}
-template<typename Iterator, typename BasicTypes>
-struct parse_impl<ast::literal<Iterator, BasicTypes> >
+template<typename Iterator, typename Value>
+struct parse_impl<ast::literal<Iterator, Value> >
 {
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef ast::literal<Iterator, BasicTypes> node_type;
+  typedef ast::literal<Iterator, Value> node_type;
   /** // doc: char_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::char_type char_type;
+  typedef typename ast::value_traits<Value>::char_type char_type;
   /** // doc: int_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::int_type int_type;
+  typedef typename ast::value_traits<Value>::int_type int_type;
   /** // doc: bool_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::bool_type bool_type;
+  typedef typename ast::value_traits<Value>::bool_type bool_type;
   /** // doc: real_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::real_type real_type;
+  typedef typename ast::value_traits<Value>::real_type real_type;
   /** // doc: string_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::string_type string_type;
+  typedef typename ast::value_traits<Value>::string_type string_type;
   /** // doc: regex_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef typename BasicTypes::regex_type regex_type;
+  typedef typename ast::value_traits<Value>::regex_type regex_type;
 
   /** // doc: apply() {{{
    * \todo Write documentation
    */ // }}}
   template<typename Ehandler>
   static bool
-  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler& eh)
+  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler f)
   {
     if(first == last)
       return false;
@@ -75,14 +76,14 @@ struct parse_impl<ast::literal<Iterator, BasicTypes> >
     if(*first == lexer::token_t::qchar_)
       {
         char_type x;
-        if(!lexer::get_qchar(beg, end, x, eh))
+        if(!lexer::get_qchar(beg, end, x, f))
           return false;
         node.value = x;
       }
     else if(*first == lexer::token_t::int_)
       {
         int_type x;
-        if(!lexer::get_int(beg, end, x, eh))
+        if(!lexer::get_int(beg, end, x, f))
           return false;
         node.value = x;
       }
@@ -101,21 +102,21 @@ struct parse_impl<ast::literal<Iterator, BasicTypes> >
     else if(*first == lexer::token_t::real_)
       {
         real_type x;
-        if(!lexer::get_real(beg, end, x, eh))
+        if(!lexer::get_real(beg, end, x, f))
           return false;
         node.value = x;
       }
     else if(*first == lexer::token_t::qstring_)
       {
         string_type x;
-        if(!lexer::get_qstring(beg, end, x, eh))
+        if(!lexer::get_qstring(beg, end, x, f))
           return false;
         node.value = x;
       }
     else if(*first == lexer::token_t::qregex_)
       {
         regex_type x;
-        if(!lexer::get_qregex(beg, end, x, eh))
+        if(!lexer::get_qregex(beg, end, x, f))
           return false;
         node.value = x;
       }

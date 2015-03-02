@@ -8,7 +8,7 @@
 
 /** // doc: txpl/vm/array_fwd.hpp {{{
  * \file txpl/vm/array_fwd.hpp
- * \todo Write documentation
+ * \brief Provides forward declaration of the \ref txpl::vm::array "vm::array<>"
  */ // }}}
 #ifndef TXPL_VM_ARRAY_FWD_HPP
 #define TXPL_VM_ARRAY_FWD_HPP
@@ -17,7 +17,8 @@
 
 namespace txpl { namespace vm {
 /** // doc: array {{{
- * \todo Write documentation
+ * \ingroup VmGroup
+ * \brief Forward declaration for the \ref txpl::vm::array<> "vm::array"
  */ // }}}
 template<typename Value>
 using array_fwd = std::vector<Value>;

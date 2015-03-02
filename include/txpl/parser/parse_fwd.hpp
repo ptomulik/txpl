@@ -18,12 +18,7 @@ namespace txpl { namespace parser {
  * \todo Write documentation
  */ // }}}
 template<typename Iterator, typename Node, typename Ehandler>
-bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler const& eh);
-/** // doc: parse() {{{
- * \todo Write documentation
- */ // }}}
-template<typename Iterator, typename Node, typename Ehandler>
-bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler& eh);
+bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler f);
 /** // doc: parse() {{{
  * \todo Write documentation
  */ // }}}

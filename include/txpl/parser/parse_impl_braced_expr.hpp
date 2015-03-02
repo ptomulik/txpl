@@ -21,13 +21,13 @@ namespace txpl { namespace parser {
 /** // doc: parse_impl<ast::braced_expr> {{{
  * \todo Write documentation
  */ // }}}
-template<typename Iterator, typename BasicTypes>
-struct parse_impl<ast::braced_expr<Iterator, BasicTypes> >
+template<typename Iterator, typename Value>
+struct parse_impl<ast::braced_expr<Iterator, Value> >
 {
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef ast::braced_expr<Iterator, BasicTypes> node_type;
+  typedef ast::braced_expr<Iterator, Value> node_type;
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
@@ -37,7 +37,7 @@ struct parse_impl<ast::braced_expr<Iterator, BasicTypes> >
    */ // }}}
   template<typename Ehandler>
   static bool
-  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler& eh)
+  apply(Iterator& first, Iterator const& last, node_type& node, Ehandler f)
   {
     if(first == last) return false;
     expr_type expr;
@@ -45,24 +45,24 @@ struct parse_impl<ast::braced_expr<Iterator, BasicTypes> >
     if(*first != '(') return false;
     if(++first == last)
       {
-        eh(first, last, "expected sub-expression");
+        f(first, last, "expected sub-expression");
         return false;
       }
     it = first;
-    if(!parse(first, last, expr, eh))
+    if(!parse(first, last, expr, f))
       {
         if(it == first)
-          eh(first, last, "expected sub-expression");
+          f(first, last, "expected sub-expression");
         return false;
       }
     if(first == last)
       {
-        eh(first, last, "expected ')'");
+        f(first, last, "expected ')'");
         return false;
       }
     if(*first != ')')
       {
-        eh(first, last, "expected ')'");
+        f(first, last, "expected ')'");
         return false;
       }
     ++first;

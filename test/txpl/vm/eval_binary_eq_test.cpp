@@ -32,7 +32,7 @@ typedef object<value<> >           object_type;
 BOOST_AUTO_TEST_CASE(char__eq__char)
 {
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'\0'};
     const value<> v2 = char_type{'\0'};
@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(char__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'\0'};
     const value<> v2 = int_type{0};
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(char__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'\0'};
     const value<> v2 = bool_type{false};
@@ -77,7 +77,7 @@ BOOST_AUTO_TEST_CASE(char__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'\0'};
     const value<> v2 = real_type{0.0};
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(char__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'a'};
     const value<> v2 = string_type();
@@ -105,7 +105,7 @@ BOOST_AUTO_TEST_CASE(char__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'a'};
     const value<> v2 = regex_type();
@@ -118,7 +118,7 @@ BOOST_AUTO_TEST_CASE(char__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'a'};
     const value<> v2 = array_type();
@@ -131,7 +131,7 @@ BOOST_AUTO_TEST_CASE(char__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = char_type{'a'};
     const value<> v2 = object_type();
@@ -145,7 +145,7 @@ BOOST_AUTO_TEST_CASE(int__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = char_type{'\0'};
@@ -160,7 +160,7 @@ BOOST_AUTO_TEST_CASE(int__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = int_type{0};
@@ -175,7 +175,7 @@ BOOST_AUTO_TEST_CASE(int__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = bool_type{false};
@@ -190,7 +190,7 @@ BOOST_AUTO_TEST_CASE(int__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = real_type{0.0};
@@ -205,7 +205,7 @@ BOOST_AUTO_TEST_CASE(int__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = string_type();
@@ -218,7 +218,7 @@ BOOST_AUTO_TEST_CASE(int__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = regex_type();
@@ -231,7 +231,7 @@ BOOST_AUTO_TEST_CASE(int__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = array_type();
@@ -244,7 +244,7 @@ BOOST_AUTO_TEST_CASE(int__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = int_type{0};
     const value<> v2 = object_type();
@@ -258,7 +258,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = char_type{'\0'};
@@ -273,7 +273,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = int_type{0};
@@ -288,7 +288,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = bool_type{false};
@@ -330,7 +330,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = real_type{0.0};
@@ -345,7 +345,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = string_type();
@@ -358,7 +358,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = regex_type();
@@ -371,7 +371,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = array_type();
@@ -384,7 +384,7 @@ BOOST_AUTO_TEST_CASE(bool__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = bool_type{false};
     const value<> v2 = object_type();
@@ -398,7 +398,7 @@ BOOST_AUTO_TEST_CASE(real__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = char_type{'\0'};
@@ -413,7 +413,7 @@ BOOST_AUTO_TEST_CASE(real__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = int_type{0};
@@ -428,7 +428,7 @@ BOOST_AUTO_TEST_CASE(real__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = bool_type{false};
@@ -443,7 +443,7 @@ BOOST_AUTO_TEST_CASE(real__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = real_type{0.0};
@@ -458,7 +458,7 @@ BOOST_AUTO_TEST_CASE(real__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = string_type();
@@ -471,7 +471,7 @@ BOOST_AUTO_TEST_CASE(real__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = regex_type();
@@ -484,7 +484,7 @@ BOOST_AUTO_TEST_CASE(real__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = array_type();
@@ -497,7 +497,7 @@ BOOST_AUTO_TEST_CASE(real__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = real_type{0.0};
     const value<> v2 = object_type();
@@ -511,7 +511,7 @@ BOOST_AUTO_TEST_CASE(string__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = char_type{'\0'};
@@ -524,7 +524,7 @@ BOOST_AUTO_TEST_CASE(string__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = int_type{0};
@@ -537,7 +537,7 @@ BOOST_AUTO_TEST_CASE(string__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = bool_type{false};
@@ -550,7 +550,7 @@ BOOST_AUTO_TEST_CASE(string__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = real_type{0.0};
@@ -563,7 +563,7 @@ BOOST_AUTO_TEST_CASE(string__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type("asd");
     const value<> v2 = string_type("asd");
@@ -587,7 +587,7 @@ BOOST_AUTO_TEST_CASE(string__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = regex_type();
@@ -600,7 +600,7 @@ BOOST_AUTO_TEST_CASE(string__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = array_type();
@@ -613,7 +613,7 @@ BOOST_AUTO_TEST_CASE(string__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = string_type();
     const value<> v2 = object_type();
@@ -627,7 +627,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = char_type{'\0'};
@@ -640,7 +640,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = int_type{0};
@@ -653,7 +653,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = bool_type{false};
@@ -666,7 +666,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = real_type{0.0};
@@ -679,7 +679,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = string_type();
@@ -692,7 +692,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = regex_type();
@@ -705,7 +705,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = array_type();
@@ -718,7 +718,7 @@ BOOST_AUTO_TEST_CASE(regex__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = regex_type();
     const value<> v2 = object_type();
@@ -732,7 +732,7 @@ BOOST_AUTO_TEST_CASE(array__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = char_type{'\0'};
@@ -745,7 +745,7 @@ BOOST_AUTO_TEST_CASE(array__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = int_type{0};
@@ -758,7 +758,7 @@ BOOST_AUTO_TEST_CASE(array__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = bool_type{false};
@@ -771,7 +771,7 @@ BOOST_AUTO_TEST_CASE(array__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = real_type{0.0};
@@ -784,7 +784,7 @@ BOOST_AUTO_TEST_CASE(array__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = string_type();
@@ -797,7 +797,7 @@ BOOST_AUTO_TEST_CASE(array__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = regex_type();
@@ -810,7 +810,7 @@ BOOST_AUTO_TEST_CASE(array__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = array_type();
@@ -854,7 +854,7 @@ BOOST_AUTO_TEST_CASE(array__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = array_type();
     const value<> v2 = object_type();
@@ -868,7 +868,7 @@ BOOST_AUTO_TEST_CASE(object__eq__char)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = char_type{'\0'};
@@ -881,7 +881,7 @@ BOOST_AUTO_TEST_CASE(object__eq__int)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = int_type{0};
@@ -894,7 +894,7 @@ BOOST_AUTO_TEST_CASE(object__eq__bool)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = bool_type{false};
@@ -907,7 +907,7 @@ BOOST_AUTO_TEST_CASE(object__eq__real)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = real_type{0.0};
@@ -920,7 +920,7 @@ BOOST_AUTO_TEST_CASE(object__eq__string)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = string_type();
@@ -933,7 +933,7 @@ BOOST_AUTO_TEST_CASE(object__eq__regex)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = regex_type();
@@ -946,7 +946,7 @@ BOOST_AUTO_TEST_CASE(object__eq__array)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = array_type();
@@ -959,7 +959,7 @@ BOOST_AUTO_TEST_CASE(object__eq__object)
 {
   using namespace txpl::vm;
   value<> r;
-  auto op = eval_binary_op<op_t::eq_, basic_types<> >(r);
+  auto op = eval_binary_op<op_t::eq_>(r);
   {
     const value<> v1 = object_type();
     const value<> v2 = object_type();

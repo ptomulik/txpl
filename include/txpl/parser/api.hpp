@@ -8,7 +8,7 @@
 
 /** // doc: txpl/parser/api.hpp {{{
  * \file txpl/parser/api.hpp
- * \todo Write documentation
+ * \brief Include all important headers that define the \ref ParserGroup API
  */ // }}}
 #ifndef TXPL_PARSER_API_HPP
 #define TXPL_PARSER_API_HPP

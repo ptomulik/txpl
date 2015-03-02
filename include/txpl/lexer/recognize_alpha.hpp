@@ -20,9 +20,7 @@ namespace txpl { namespace lexer {
 template<typename CharT>
 constexpr bool
 recognize_alpha(CharT c) noexcept
-{
-  return (c>=CharT{'a'} && c<=CharT{'z'}) || (c>=CharT{'A'} && c<=CharT{'Z'});
-}
+{ return (c>=CharT{'a'} && c<=CharT{'z'}) || (c>=CharT{'A'} && c<=CharT{'Z'}); }
 } } // end namespace txpl::lexer
 
 #endif /* TXPL_LEXER_RECOGNIZE_ALPHA_HPP */

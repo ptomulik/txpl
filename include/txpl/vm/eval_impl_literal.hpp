@@ -13,50 +13,25 @@
 #ifndef TXPL_VM_EVAL_IMPL_LITERAL_HPP
 #define TXPL_VM_EVAL_IMPL_LITERAL_HPP
 
-#include <txpl/ast/nodes.hpp>
+#include <txpl/ast/literal.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_impl<ast::literal> {{{
  * \todo Write documentation
  */ // }}}
-template<typename Iterator, typename BasicTypes>
-struct eval_impl<ast::literal<Iterator, BasicTypes> >
+template<typename Iterator, typename Value>
+struct eval_impl<ast::literal<Iterator, Value> >
 {
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef ast::literal<Iterator, BasicTypes> node_type;
-  /** // doc: char_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::char_type char_type;
-  /** // doc: int_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::int_type int_type;
-  /** // doc: bool_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::bool_type bool_type;
-  /** // doc: real_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::real_type real_type;
-  /** // doc: string_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::string_type string_type;
-  /** // doc: regex_type {{{
-   * \todo Write documentation
-   */ // }}}
-  typedef typename BasicTypes::regex_type regex_type;
-
+  typedef ast::literal<Iterator, Value> node_type;
   /** // doc: apply() {{{
    * \todo Write documentation
    */ // }}}
-  template<typename Context, typename Result, typename Ehandler>
+  template<typename Context, typename Result, typename Ehandler, typename Range>
   static bool
-  apply(node_type const& node, Context const&, Result& res, Ehandler)
+  apply(node_type const& node, Context const&, Result& res, Ehandler, Range const&)
   {
     res = node.value;
     return true;

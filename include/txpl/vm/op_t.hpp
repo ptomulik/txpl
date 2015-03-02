@@ -4,10 +4,10 @@
 // (See accompanying file LICENSE_1_0.txt or copy at
 //  http://www.boost.org/LICENSE_1_0.txt)
 
-// txpl/unit.hpp
+// txpl/vm/op_t.hpp
 
-/** // doc: txpl/unit.hpp {{{
- * \file txpl/unit.hpp
+/** // doc: txpl/vm/op_t.hpp {{{
+ * \file txpl/vm/op_t.hpp
  * \todo Write documentation
  */ // }}}
 #ifndef TXPL_VM_OP_T_HPP
@@ -87,43 +87,47 @@ enum class op_t : int
   /** // doc: and_ {{{
    * \todo Write documentation
    */ // }}}
-  and_    = 0x10100,
+  and_        = 0x10100,
   /** // doc: or_ {{{
    * \todo Write documentation
    */ // }}}
-  or_     = 0x10101,
+  or_         = 0x10101,
   /** // doc: eq_ {{{
    * \todo Write documentation
    */ // }}}
-  eq_     = 0x10102,
+  eq_         = 0x10102,
   /** // doc: neq_ {{{
    * \todo Write documentation
    */ // }}}
-  neq_    = 0x10103,
+  neq_        = 0x10103,
   /** // doc: le_ {{{
    * \todo Write documentation
    */ // }}}
-  le_     = 0x10104,
+  le_         = 0x10104,
   /** // doc: ge_ {{{
    * \todo Write documentation
    */ // }}}
-  ge_     = 0x10105,
+  ge_         = 0x10105,
   /** // doc: lshift_ {{{
    * \todo Write documentation
    */ // }}}
-  lshift_ = 0x10106,
+  lshift_     = 0x10106,
   /** // doc: rshift_ {{{
    * \todo Write documentation
    */ // }}}
-  rshift_ = 0x10107,
+  rshift_     = 0x10107,
   /** // doc: match_ {{{
    * \todo Write documentation
    */ // }}}
-  match_  = 0x10108,
+  match_      = 0x10108,
   /** // doc: nmatch_ {{{
    * \todo Write documentation
    */ // }}}
-  nmatch_ = 0x10109,
+  nmatch_     = 0x10109,
+  /** // doc: subscript_ {{{
+   * \todo Write documentation
+   */ // }}}
+  subscript_  = 0x1010A,
 };
 
 /** // doc: operator== {{{

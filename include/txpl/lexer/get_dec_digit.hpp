@@ -8,7 +8,7 @@
 
 /** // doc: txpl/lexer/get_dec_digit.hpp {{{
  * \file txpl/lexer/get_dec_digit.hpp
- * \todo Write documentation
+ * \brief Implements \ref txpl::lexer::get_dec_digit() "lexer::get_dec_digit()"
  */ // }}}
 #ifndef TXPL_LEXER_GET_DEC_DIGIT_HPP_INCLUDED
 #define TXPL_LEXER_GET_DEC_DIGIT_HPP_INCLUDED
@@ -16,9 +16,22 @@
 #include <txpl/lexer/recognize_dec_digit.hpp>
 
 namespace txpl { namespace lexer {
-  /** // doc: get_dec_digit() {{{
-   * \todo Write documentation
-   */ // }}}
+/** // doc: get_dec_digit() {{{
+ * \ingroup LexerGroup
+ * \brief Retrieves a decimal digit from input
+ *
+ * \param c input character
+ * \param result where to store the resultant digit, a mutable reference to
+ *        integer variable.
+ * \returns `true` on success or `false` otherwise
+ *
+ * \par Description
+ *
+ * If \e c is a valid decimal digit, that is a character ``'0'`` through
+ * ``'9'``, then it gets converted to appropriate integer value and stored in
+ * \e result. Otherwise, the \e result remains untouched and the function
+ * returns `false`.
+ */ // }}}
 template<typename CharT, typename T>
 bool get_dec_digit(CharT c, T& result)
 {

@@ -43,7 +43,7 @@ bool scope_lookup(scope<Symbol> const& s, std::string const& start,
   if(name.find(scope_op_detail::separator()) == 0ul)
     {
       // absolute name lookup
-      return scope_find(s, name, result, f);
+      return scope_find(s, name.begin()+2, name.end(), result, f);
     }
   else
     {

@@ -8,54 +8,53 @@
 
 /** // doc: txpl/ast/node.hpp {{{
  * \file txpl/ast/node.hpp
- * \todo Write documentation
+ * \brief Implements \ref txpl::ast::node "ast::node<>"
  */ // }}}
 #ifndef TXPL_AST_NODE_HPP
 #define TXPL_AST_NODE_HPP
 
+#include <txpl/ast/node_fwd.hpp>
+#include <boost/range/iterator_range_core.hpp>
+
 namespace txpl { namespace ast {
 /** // doc: node {{{
- * \todo Write documentation
+ * \brief Base class for all the AST nodes
+ *
+ * \tparam Iterator type of token iterator; \e Iterators are stored in node
+ *         to mark the positions of subexpressions represented by given nodes.
  */ // }}}
 template<typename Iterator>
 struct node
 {
-  /** // doc: token_iterator_type {{{
+  /** // doc: range_type {{{
    * \todo Write documentation
+   */ // }}}
+  typedef boost::iterator_range<Iterator> range_type;
+  /** // doc: range {{{
+   * \todo Write documentation
+   */ // }}}
+  boost::iterator_range<Iterator> range;
+  /** // doc: token_iterator_type {{{
+   * \brief Type of the token iterator used
+   *
+   * Same as \e Iterator template parameter used
    */ // }}}
   typedef Iterator token_iterator_type;
-  /** // doc: node() {{{
-   * \todo Write documentation
-   */ // }}}
-  node()
-  { }
-  /** // doc: node() {{{
-   * \todo Write documentation
-   */ // }}}
-  node(Iterator const& begin, Iterator const& end)
-    : _begin(begin), _end(end)
-  { }
   /** // doc: set_range() {{{
-   * \todo Write documentation
+   * \brief Set the begin and end iterators
    */ // }}}
   void set_range(Iterator const& begin, Iterator const& end)
-  {
-    _begin = begin;
-    _end = end;
-  }
+  { range = range_type(begin, end); }
   /** // doc: begin() {{{
-   * \todo Write documentation
+   * \brief Retrieve the begin iterator
    */ // }}}
-  Iterator const& begin() const noexcept
-  { return this->_begin; }
+  Iterator begin() const noexcept
+  { return range.begin(); }
   /** // doc: end() {{{
-   * \todo Write documentation
+   * \brief Retrieve the end iterator
    */ // }}}
-  Iterator const& end() const noexcept
-  { return this->_end; }
-private:
-  Iterator _begin;
-  Iterator _end;
+  Iterator end() const noexcept
+  { return range.end(); }
 };
 } } // end txpl::ast
 

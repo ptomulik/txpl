@@ -18,7 +18,8 @@
 
 namespace txpl { namespace vm {
 /** // doc: scope_fwd {{{
- * \todo Write documentation
+ * \ingroup VmGroup
+ * \brief Forward declaration for the \ref txpl::vm::scope "vm::scope<>"
  */ // }}}
 template<typename Symbol>
 using scope_fwd = std::map<std::string, Symbol>;

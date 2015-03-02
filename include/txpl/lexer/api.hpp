@@ -8,7 +8,7 @@
 
 /** // doc: txpl/lexer/api.hpp {{{
  * \file txpl/lexer/api.hpp
- * \todo Write documentation
+ * \brief Include all important headers that define the \ref LexerGroup API
  */ // }}}
 #ifndef TXPL_LEXER_API_HPP
 #define TXPL_LEXER_API_HPP

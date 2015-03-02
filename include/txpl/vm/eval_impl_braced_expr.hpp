@@ -13,20 +13,20 @@
 #ifndef TXPL_VM_EVAL_IMPL_BRACED_EXPR_HPP
 #define TXPL_VM_EVAL_IMPL_BRACED_EXPR_HPP
 
-#include <txpl/ast/nodes.hpp>
+#include <txpl/ast/braced_expr.hpp>
 #include <txpl/vm/eval.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_impl<ast::braced_expr> {{{
  * \todo Write documentation
  */ // }}}
-template<typename Iterator, typename BasicTypes>
-struct eval_impl<ast::braced_expr<Iterator, BasicTypes> >
+template<typename Iterator, typename Value>
+struct eval_impl<ast::braced_expr<Iterator, Value> >
 {
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
-  typedef ast::braced_expr<Iterator, BasicTypes> node_type;
+  typedef ast::braced_expr<Iterator, Value> node_type;
   /** // doc: node_type {{{
    * \todo Write documentation
    */ // }}}
@@ -34,12 +34,10 @@ struct eval_impl<ast::braced_expr<Iterator, BasicTypes> >
   /** // doc: apply() {{{
    * \todo Write documentation
    */ // }}}
-  template<typename Context, typename Result, typename Ehandler>
+  template<typename Context, typename Result, typename Ehandler, typename Range>
   static bool
-  apply(node_type const& node, Context const& context, Result& res, Ehandler eh)
-  {
-    return eval(node.expr, context, res, eh);
-  }
+  apply(node_type const& node, Context const& context, Result& res, Ehandler f, Range const&)
+  { return eval(node.expr, context, res, f); }
 };
 } } // end namespace txpl::vm
 

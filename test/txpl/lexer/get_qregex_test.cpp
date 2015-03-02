@@ -286,7 +286,12 @@ BOOST_AUTO_TEST_CASE(cstr__regex)
 ///////////////////////////////////////////////////////////////////////
 // bug in clang 3.5.0 prevents us from testing the following cases.
 // currently I get the error:
-//  L"shift count 32 >= width of type 'int' (32 bits)"
+//
+//  "shift count 32 >= width of type 'int' (32 bits)"
+//
+// This is in fact bug in libstdc++ which is present in libstdc++ <= 4.9.2.
+// I don't know yet in what version this bug gets fixed (algthrough
+// the fix is currently present in trunk).
 ///////////////////////////////////////////////////////////////////////
 #ifndef __clang__
 BOOST_AUTO_TEST_CASE(cwstr__wregex)

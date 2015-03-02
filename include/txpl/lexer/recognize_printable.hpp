@@ -20,9 +20,7 @@ namespace txpl { namespace lexer {
 template<typename CharT>
 constexpr bool
 recognize_printable(CharT c) noexcept
-{
-  return (c>=CharT{'\x20'} && c<=CharT{'\x7E'});
-}
+{ return (c>=CharT{'\x20'} && c<=CharT{'\x7E'}); }
 } } // end namespace txpl::lexer
 
 #endif /* TXPL_LEXER_RECOGNIZE_PRINTABLE_HPP */

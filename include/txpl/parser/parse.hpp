@@ -19,20 +19,16 @@
 
 namespace txpl { namespace parser {
 template<typename Iterator, typename Node, typename Ehandler>
-bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler const& eh)
+bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler f)
 {
-  return parse_impl<Node>::apply(first, last, node, eh);
-}
-template<typename Iterator, typename Node, typename Ehandler>
-bool parse(Iterator& first, Iterator const& last, Node& node, Ehandler& eh)
-{
-  return parse_impl<Node>::apply(first, last, node, eh);
+  Iterator beg = first;
+  if(!parse_impl<Node>::apply(first, last, node, f)) return false;
+  node.set_range(beg, first);
+  return true;
 }
 template<typename Iterator, typename Node>
 bool parse(Iterator& first, Iterator const& last, Node& node)
-{
-  return parse(first, last, node, util::fake_functor<void>());
-}
+{ return parse(first, last, node, util::fake_functor<void>()); }
 } } // end namespace txpl::parser
 
 #include <txpl/parser/parse_impl.hpp>

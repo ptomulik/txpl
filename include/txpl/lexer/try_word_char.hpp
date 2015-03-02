@@ -8,7 +8,7 @@
 
 /** // doc: txpl/lexer/try_word_char.hpp {{{
  * \file txpl/lexer/try_word_char.hpp
- * \todo Write documentation
+ * \brief Implements \ref txpl::lexer::try_word_char() "lexer::try_word_char()"
  */ // }}}
 #ifndef TXPL_LEXER_TRY_WORD_CHAR_HPP_INCLUDED
 #define TXPL_LEXER_TRY_WORD_CHAR_HPP_INCLUDED
@@ -18,7 +18,8 @@
 
 namespace txpl { namespace lexer {
 /** // doc: try_word_char() {{{
- * \todo Write documentation
+ * \ingroup LexerGroup
+ * \brief Scans for a first character in a \ref ExpressionSyntaxLexerRules "word"
  */ // }}}
 template<typename Iterator>
 bool try_word_char0(Iterator& first, Iterator const& last)
@@ -29,7 +30,7 @@ bool try_word_char0(Iterator& first, Iterator const& last)
   return true;
 }
 /** // doc: try_word_char() {{{
- * \todo Write documentation
+ * \brief Scans for a non-first character in a \ref ExpressionSyntaxLexerRules "word"
  */ // }}}
 template<typename Iterator>
 bool try_word_char(Iterator& first, Iterator const& last)

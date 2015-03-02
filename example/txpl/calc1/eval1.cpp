@@ -31,33 +31,41 @@ typedef token_list::const_iterator      token_iter;
 struct error_handler
 {
   /// Constructor
-  error_handler(string_iter s)
-    : start(s)
-  { }
-  /// Handler for parser-level errors
-  void
-  operator() (token_iter const& first, token_iter const& last, std::string const& msg) const
+  error_handler(std::string const& input, token_list const& tokens)
+    : _input(input), _tokens(tokens)
+  {}
+  /// Handler for parser-level error
+  void operator() (token_iter const& first,
+                   token_iter const& last,
+                   std::string const& msg) const
   {
-    if(first != last)
-      std::cerr << "at: " << 1 + std::count(start, first->begin(), '\n')
-                << ": " << std::string(first->begin(), first->end()) << std::endl;
-    else
+    if(first == last)
       std::cerr << "at: eof" << std::endl;
+    else
+      {
+        token_iter it = last;
+        std::cerr << "at: " << 1 + std::count(_input.begin(), first->begin(), '\n') << ": ";
+        std::cerr << std::string(first->begin(), (--it)->end()) << std::endl;
+      }
     std::cerr << "error: " << msg << std::endl;
   }
   /// Handler for token-level errors
-  void
-  operator()(string_iter const& begin, string_iter const& end, std::string const& msg) const
+  void operator() (string_iter const& first,
+                   string_iter const& last,
+                   std::string const& msg) const
   {
-    if(begin != end)
-      std::cerr << "at: " << 1 + std::count(start, begin, '\n')
-                << ": " << std::string(begin, end) << std::endl;
-    else
+    if(first == last)
       std::cerr << "at: eof" << std::endl;
+    else
+      {
+        std::cerr << "at: " << 1 + std::count(_input.begin(), first, '\n') << ": ";
+        std::cerr << std::string(first, last) << std::endl;
+      }
     std::cerr << "error: " << msg << std::endl;
   }
 private:
-  string_iter start;
+  std::string const& _input;
+  token_list const& _tokens;
 };
 // [ErrorHandler]
 
@@ -81,7 +89,7 @@ int main(int, char**)
     {
       string_iter s_next;
       lexer::try_token(s_it, s_end, s_next);
-      error_handler(str.cbegin())(s_it, s_next, "invalid token");
+      error_handler(str, tokens)(s_it, s_next, "invalid token");
       return EXIT_FAILURE;
     }
   // [Tokenize]
@@ -90,11 +98,11 @@ int main(int, char**)
   token_iter t_it = tokens.cbegin();
   token_iter t_end = tokens.cend();
   ast::expr<token_iter> top;
-  if(!parser::parse(t_it, t_end, top, error_handler(str.cbegin())))
+  if(!parser::parse(t_it, t_end, top, error_handler(str, tokens)))
     return EXIT_FAILURE;
   if(t_it != t_end)
     {
-      error_handler(str.cbegin())(t_it, t_end, "parse error");
+      error_handler(str, tokens)(t_it, t_end, "parse error");
       return EXIT_FAILURE;
     }
   // [Parse]
@@ -102,9 +110,9 @@ int main(int, char**)
   // [Eval]
   vm::context<> ctx;
   vm::value<> res;
-  if(!vm::eval(top, ctx, res, error_handler(str.cbegin())))
+  if(!vm::eval(top, ctx, res, error_handler(str, tokens)))
     return EXIT_FAILURE;
-  std::cout << std::boolalpha << res << std::endl;
+  vm::dump(std::cout, res) << std::endl;
   // [Eval]
   return EXIT_SUCCESS;
 }

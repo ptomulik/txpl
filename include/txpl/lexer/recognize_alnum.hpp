@@ -23,9 +23,7 @@ namespace txpl { namespace lexer {
 template<typename CharT>
 constexpr bool
 recognize_alnum(CharT c) noexcept
-{
-  return recognize_alpha(c) || (recognize_dec_digit(c) != 0);
-}
+{ return recognize_alpha(c) || (recognize_dec_digit(c) != 0); }
 } } // end namespace txpl::lexer
 
 #endif /* TXPL_LEXER_RECOGNIZE_ALNUM_HPP */

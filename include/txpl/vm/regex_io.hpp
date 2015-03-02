@@ -18,7 +18,14 @@
 
 namespace std {
 /** // doc: operator<<() {{{
- * \todo Write documentation
+ * \ingroup VmGroup
+ * \brief Overloaded ostream \c operator<< for `std::basic_regex<>`
+ *
+ * \param os output stream,
+ * \param x  regex.
+ * \returns  the modified output stream \e os.
+ *
+ * The function outputs its argument \e x to the output stream \e os
  */ // }}}
 template<typename CharT, typename Traits, typename CharT2, typename Traits2>
 basic_ostream<CharT, Traits>&
