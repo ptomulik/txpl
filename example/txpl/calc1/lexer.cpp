@@ -7,8 +7,7 @@
  */ // }}}
 /** // doc: example calc1/lexer.cpp {{{
  * \example calc1/lexer.cpp
- * This example demonstrates how one may use the txpl::eval functions
- * to parse simple mathematical expressions and clxx.
+ * This example demonstrates how one may use the txpl::lexer functions.
  */ // }}}
 // [Code]
 #include <txpl/calc1/lexer.hpp>

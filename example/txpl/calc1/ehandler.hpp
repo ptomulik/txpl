@@ -10,6 +10,11 @@
  * \file txpl/calc1/ehandler.hpp
  * \todo Write documentation
  */ // }}}
+/** // doc: example calc1/ehandler.cpp {{{
+ * \example calc1/ehandler.cpp
+ * \todo Write documentation
+ */ // }}}
+// [Code]
 #ifndef TXPL_CALC1_EHANDLER_HPP
 #define TXPL_CALC1_EHANDLER_HPP
 
@@ -37,7 +42,7 @@ private:
   token_list const& _tokens;
 };
 } } // end namespace txpl::calc1
-
+// [Code]
 #endif /* TXPL_CALC1_EHANDLER_HPP */
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:

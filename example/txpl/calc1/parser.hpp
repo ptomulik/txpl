@@ -10,6 +10,11 @@
  * \file txpl/calc1/parser.hpp
  * \todo Write documentation
  */ // }}}
+/** // doc: example calc1/parser.hpp {{{
+ * \example calc1/parser.hpp
+ * Header file for calc1/parser.cpp
+ */ // }}}
+// [Code]
 #ifndef TXPL_CALC1_PARSER_HPP
 #define TXPL_CALC1_PARSER_HPP
 
@@ -22,5 +27,6 @@ bool parse(ast::expr<token_iter>&, token_list const&, ehandler);
 } } // end namespace txpl::calc1
 
 #endif /* TXPL_CALC1_PARSER_HPP */
+// [Code]
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:

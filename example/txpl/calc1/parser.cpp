@@ -5,12 +5,11 @@
  * \file clxx/eval1.cpp
  * \brief Provides eval1.cpp example.
  */ // }}}
-/** // doc: example eval1.cpp {{{
- * \example eval1.cpp
- * This example demonstrates how one may use the txpl::eval functions
- * to parse simple mathematical expressions and clxx.
+/** // doc: example calc1/parser.cpp {{{
+ * \example calc1/parser.cpp
+ * This example demonstrates how one may use the txpl::parser functions.
  */ // }}}
-
+// [Code]
 #include <txpl/calc1/lexer.hpp>
 #include <txpl/calc1/ehandler.hpp>
 #include <txpl/parser/parse.hpp>
@@ -30,6 +29,6 @@ bool parse(ast::expr<token_iter>& top, token_list const& tokens, ehandler f)
   return true;
 }
 } } // end namespace txpl::calc1
-
+// [Code]
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:

@@ -10,6 +10,10 @@
  * \file txpl/calc1/ehandler.cpp
  * \todo Write documentation
  */ // }}}
+/** // doc: example calc1/ehandler.cpp {{{
+ * \example calc1/ehandler.cpp
+ * \todo Write documentation
+ */ // }}}
 // [Code]
 #include <txpl/calc1/ehandler.hpp>
 #include <iostream>

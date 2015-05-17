@@ -1,0 +1,77 @@
+/**
+ * \mainpage TXPL &mdash; Template-based eXpression Parsing Library
+ *
+ * TXPL is a template-based C++11 library for parsing expressions.
+ *
+ * The library defines and implements API for parsing and evaluating
+ * expressions. A single (but not necessary simple) expression is parsed at a
+ * time and yields so called abstract syntax tree, which is just its binary
+ * representation. The tree may be then evaluated to determine the value of the
+ * expression. The same expression may be evaluated several times in different
+ * contexts (for example with different sets of predefined variables/constants)
+ * to yield different values.
+ *
+ * \par Architecture
+ *
+ * The library is split into four parts:
+ *
+ *  - \ref LexerGroup &mdash; responsible for recognizing tokens, that is the
+ *    most elementary entities such as numbers, keywords or operators.
+ *  - \ref ParserGroup &mdash; responsible for recognizing expressions and
+ *    building their binary representations -- abstract syntax trees.
+ *  - \ref AstGroup &mdash; used to represent the expression in a binary form.
+ *  - \ref VmGroup &mdash; used to evaluate abstract syntax trees and determine
+ *    expressions' values.
+ *
+ * \par Example expressions
+ *
+ * To give a first glimpse of what the "expressions" may look like, let's show
+ * few examples 
+ *
+ *  - <b>a value given directly</b>
+ *    \code
+ *      true
+ *    \endcode
+ *  - <b>arithmetic expression</b>
+ *    \code
+ *      1 + 3/2.34 * 4.34
+ *    \endcode
+ *  - <b>comparisons, logical expressions</b>
+ *    \code
+ *      !(3.456 > 5.432) || (3 - 2 == 1)
+ *    \endcode
+ *  - <b>conditional expression</b>
+ *    \code
+ *      calendar::day == "monday" ? 2.345 : -5.432
+ *    \endcode
+ *
+ * Any valid expression may be used as a subexpression in a larger expression.
+ * Subexpressions may be grouped with parentheses.
+ *
+ * The <b>conditional expression</b> example given above involves a predefined
+ * variable, so its value depends on the value of this variable. Variables are
+ * part of a more generic concept which we call here an <b>evaluation
+ * context</b>. Context is provided to the virtual machine at the evaluation
+ * time (so expression's value is, in general, not known from the expression
+ * itself, and becomes obvious within a context).
+ *
+ * \par Syntax definition
+ *
+ * See \ref ExpressionSyntax. 
+ *
+ * \par Type system
+ *
+ * The virtual machine implements a type system which features
+ *  - <b>basic types</b>, such as numbers, characters, string etc.,
+ *    see \ref BasicTypesConcept,
+ *  - <b>dict</b>: a key-value dictionary, nested dictionaries are supported,
+ *  - <b>array</b>: indexed with integers, multi-dimensional arrays are
+ *    supported.
+ *
+ * \par Examples
+ *
+ * \todo Put links to a few examples here.
+ *
+ */
+
+// vim: set syntax=doxygen spell:

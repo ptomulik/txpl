@@ -10,6 +10,11 @@
  * \file txpl/calc1/vm.hpp
  * \todo Write documentation
  */ // }}}
+/** // doc: example calc1/vm.hpp {{{
+ * \example calc1/vm.hpp
+ * \todo Write documentation
+ */ // }}}
+// [Code]
 #ifndef TXPL_CALC1_VM_HPP
 #define TXPL_CALC1_VM_HPP
 
@@ -22,5 +27,6 @@ bool eval(ast::expr<token_iter> const&, ehandler);
 } } // end namespace txpl::calc1
 
 #endif /* TXPL_CALC1_VM_HPP */
+// [Code]
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:

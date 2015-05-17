@@ -10,6 +10,11 @@
  * \file txpl/calc1/lexer.hpp
  * \todo Write documentation
  */ // }}}
+/** // doc: example calc1/lexer.hpp {{{
+ * \example calc1/lexer.hpp
+ * Header file for calc1/lexer.cpp
+ */ // }}}
+// [Code]
 #ifndef TXPL_CALC1_LEXER_HPP
 #define TXPL_CALC1_LEXER_HPP
 
@@ -29,5 +34,6 @@ bool tokenize(token_list&, std::string const&, ehandler);
 } } // end namespace txpl::calc1
 
 #endif /* TXPL_CALC1_LEXER_HPP */
+// [Code]
 // vim: set expandtab tabstop=2 shiftwidth=2:
 // vim: set foldmethod=marker foldcolumn=4:
