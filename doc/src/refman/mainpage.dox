@@ -4,23 +4,24 @@
  * TXPL is a template-based C++11 library for parsing expressions.
  *
  * The library defines and implements API for parsing and evaluating
- * expressions. A single (but not necessary simple) expression is parsed at a
- * time and yields so called abstract syntax tree, which is just its binary
- * representation. The tree may be then evaluated to determine the value of the
- * expression. The same expression may be evaluated several times in different
- * contexts (for example with different sets of predefined variables/constants)
- * to yield different values.
+ * expressions. The API allows parsing one expression at a time and this
+ * operation yields so-called abstract syntax tree, which is just a binary
+ * representation of the parsed expression. The tree may be then evaluated to
+ * determine the value of the expression. The same expression may be evaluated
+ * several times in different contexts (for example with different sets of
+ * predefined variables/constants) to yield different values.
  *
  * \par Architecture
  *
  * The library is split into four parts:
  *
- *  - \ref LexerGroup &mdash; responsible for recognizing tokens, that is the
+ *  - \ref LexerGroup &mdash; responsible for recognizing tokens &mdash; the
  *    most elementary entities such as numbers, keywords or operators.
  *  - \ref ParserGroup &mdash; responsible for recognizing expressions and
  *    building their binary representations -- abstract syntax trees.
- *  - \ref AstGroup &mdash; used to represent the expression in a binary form.
- *  - \ref VmGroup &mdash; used to evaluate abstract syntax trees and determine
+ *  - \ref AstGroup &mdash; structures used to represent the expression in a
+ *    binary form.
+ *  - \ref VmGroup &mdash; evaluates abstract syntax trees and determines
  *    expressions' values.
  *
  * \par Example expressions
