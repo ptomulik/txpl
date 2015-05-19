@@ -19,7 +19,7 @@
 #include <txpl/vm/value_traits.hpp>
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/array.hpp>
-#include <tml/bool.hpp>
+#include <yaul/tml/bool.hpp>
 #include <boost/variant/static_visitor.hpp>
 
 namespace txpl { namespace vm {
@@ -78,7 +78,7 @@ protected:
    * \ref eval_unary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
   template<typename T>
-  bool apply(T const& x, tml::true_) const
+  bool apply(T const& x, yaul::tml::true_) const
   {
     result = disambiguate<value_traits<Value> >(apply_unary_op<Op>::apply(x));
     return true;
@@ -117,7 +117,7 @@ protected:
    * stores result under a reference provided as the argument \e r to the
    * \ref eval_unary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
-  bool apply(array<Value> const& x, tml::true_) const
+  bool apply(array<Value> const& x, yaul::tml::true_) const
   { return apply(x); }
   /** // doc: apply() {{{
    * \brief Applies the operator \e Op to operand
@@ -130,7 +130,7 @@ protected:
    * stores result under a reference provided as the argument \e r to the
    * \ref eval_unary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
-  bool apply(array<Value> const& x, tml::false_) const
+  bool apply(array<Value> const& x, yaul::tml::false_) const
   { return apply(x); }
   /** // doc: apply() {{{
    * \brief Does nothing and returns `false`
@@ -144,7 +144,7 @@ protected:
    * "constructor" remains unchanged.
    */ // }}}
   template<typename T>
-  bool apply(T const&, tml::false_) const
+  bool apply(T const&, yaul::tml::false_) const
   { return false; }
 private:
   Value& result;

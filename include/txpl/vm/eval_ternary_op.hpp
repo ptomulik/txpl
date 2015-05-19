@@ -20,7 +20,7 @@
 #include <txpl/vm/array.hpp>
 #include <txpl/vm/object.hpp>
 #include <txpl/vm/op_t.hpp>
-#include <tml/bool.hpp>
+#include <yaul/tml/bool.hpp>
 #include <boost/variant/apply_visitor.hpp>
 #include <boost/variant/static_visitor.hpp>
 #include <boost/variant/multivisitors.hpp>
@@ -98,7 +98,7 @@ protected:
    * the \ref eval_ternary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
   template<typename T1, typename T2, typename T3>
-  bool apply(T1 const& x1, T2 const& x2, T3 const& x3, tml::true_) const
+  bool apply(T1 const& x1, T2 const& x2, T3 const& x3, yaul::tml::true_) const
   {
     result = disambiguate<value_traits<Value> >(apply_ternary_op<Op>::apply(x1, x2, x3));
     return true;
@@ -116,7 +116,7 @@ protected:
    * runtime (because this depends on the dimension, sizes and contents of
    * arrays which is know only at runtime).
    */ // }}}
-  bool apply(Array const& x1, Array const& x2, Array const& x3, tml::true_) const
+  bool apply(Array const& x1, Array const& x2, Array const& x3, yaul::tml::true_) const
   {
     if(x1.size() != x2.size() || x1.size() != x3.size()) return false;
     array<Value> r(x1.size());
@@ -137,7 +137,7 @@ protected:
    * \param x3 third operand.
    * \returns currently it does nothing and always returns `false`
    */ // }}}
-  bool apply(Object const&, Object const&, Object const&, tml::true_) const
+  bool apply(Object const&, Object const&, Object const&, yaul::tml::true_) const
   {
     // TODO: elaborate if we're able to apply ternary ops to objects somehow??
     return false;
@@ -158,7 +158,7 @@ protected:
    * "constructor" remains unchanged.
    */ // }}}
   template<typename T1, typename T2, typename T3>
-  bool apply(T1 const&, T2 const&, T3 const&, tml::false_) const
+  bool apply(T1 const&, T2 const&, T3 const&, yaul::tml::false_) const
   { return false; }
 private:
   Value& result;

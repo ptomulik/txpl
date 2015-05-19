@@ -21,7 +21,7 @@
 #include <txpl/vm/array.hpp>
 #include <txpl/vm/object.hpp>
 #include <txpl/vm/dict.hpp>
-#include <tml/bool.hpp>
+#include <yaul/tml/bool.hpp>
 #include <boost/variant/apply_visitor.hpp>
 #include <boost/variant/static_visitor.hpp>
 #include <regex>
@@ -86,7 +86,7 @@ protected:
    * \ref eval_binary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
   template<typename T1, typename T2>
-  bool apply(T1 const& x1, T2 const& x2, tml::true_) const
+  bool apply(T1 const& x1, T2 const& x2, yaul::tml::true_) const
   {
     result = disambiguate<value_traits<Value> >(apply_binary_op<Op>::apply(x1, x2));
     return true;
@@ -105,7 +105,7 @@ protected:
    * "constructor" remains unchanged.
    */ // }}}
   template<typename T1, typename T2>
-  bool apply(T1 const&, T2 const&, tml::false_) const
+  bool apply(T1 const&, T2 const&, yaul::tml::false_) const
   { return false; }
   /** // doc: apply() {{{
    * \brief Specialization of binary operations on arrays
@@ -144,7 +144,7 @@ protected:
    * runtime (because this depends on the dimension, sizes and contents of
    * arrays which is know only at runtime).
    */ // }}}
-  bool apply(array<Value> const& x1, array<Value> const& x2, tml::false_) const
+  bool apply(array<Value> const& x1, array<Value> const& x2, yaul::tml::false_) const
   { return apply(x1, x2); }
   /** // doc: apply() {{{
    * \brief Specialization of binary operations on arrays
@@ -158,7 +158,7 @@ protected:
    * runtime (because this depends on the dimension, sizes and contents of
    * arrays which is know only at runtime).
    */ // }}}
-  bool apply(array<Value> const& x1, array<Value> const& x2, tml::true_) const
+  bool apply(array<Value> const& x1, array<Value> const& x2, yaul::tml::true_) const
   { return apply(x1, x2); }
   /** // doc: apply() {{{
    * \brief Specialization of binary operations on arrays
@@ -167,7 +167,7 @@ protected:
    * \param x2 second operand.
    * \returns currently it does nothing and always returns `false`
    */ // }}}
-  bool apply(object<Value> const&, object<Value> const&, tml::true_) const
+  bool apply(object<Value> const&, object<Value> const&, yaul::tml::true_) const
   {
     // TODO: elaborate if we're able to apply binary ops to objects somehow??
     return false;
@@ -226,7 +226,7 @@ protected:
    * \ref eval_binary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
   template<typename T1, typename T2>
-  bool apply(dict<T1> const& x1, T2 const& x2, tml::true_) const
+  bool apply(dict<T1> const& x1, T2 const& x2, yaul::tml::true_) const
   {
     auto it = x1.find(x2);
     if(it == x1.end())
@@ -248,7 +248,7 @@ protected:
    * \ref eval_binary_op_visitor(Value&) "constructor", and returns `true`.
    */ // }}}
   template<typename T1, typename T2>
-  bool apply(T1 const& x1, T2 const& x2, tml::true_) const
+  bool apply(T1 const& x1, T2 const& x2, yaul::tml::true_) const
   {
     if(x2 < T2{0} || static_cast<typename T1::size_type>(x2) >= x1.size())
       return false;
@@ -292,7 +292,7 @@ protected:
    * runtime (because this depends on the dimension, sizes and contents of
    * arrays which is know only at runtime).
    */ // }}}
-  bool apply(array<Value> const& x1, array<Value> const& x2, tml::false_) const
+  bool apply(array<Value> const& x1, array<Value> const& x2, yaul::tml::false_) const
   { return apply(x1, x2); }
   /** // doc: apply() {{{
    * \brief Specialization of binary operations on arrays
@@ -306,7 +306,7 @@ protected:
    * runtime (because this depends on the dimension, sizes and contents of
    * arrays which is know only at runtime).
    */ // }}}
-  bool apply(array<Value> const& x1, array<Value> const& x2, tml::true_) const
+  bool apply(array<Value> const& x1, array<Value> const& x2, yaul::tml::true_) const
   { return apply(x1, x2); }
 #if 0
   /** // doc: apply() {{{
@@ -316,7 +316,7 @@ protected:
    * \param x2 second operand.
    * \returns currently it does nothing and always returns `false`
    */ // }}}
-  bool apply(object<Value> const&, object<Value> const&, tml::true_) const
+  bool apply(object<Value> const&, object<Value> const&, yaul::tml::true_) const
   {
     // TODO: elaborate if we're able to apply binary ops to objects somehow??
     return false;
@@ -336,7 +336,7 @@ protected:
    * "constructor" remains unchanged.
    */ // }}}
   template<typename T1, typename T2>
-  bool apply(T1 const&, T2 const&, tml::false_) const
+  bool apply(T1 const&, T2 const&, yaul::tml::false_) const
   { return false; }
 private:
   Value& result;

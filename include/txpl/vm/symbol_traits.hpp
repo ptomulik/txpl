@@ -14,7 +14,7 @@
 #define TXPL_VM_SYMBOL_TRAITS_HPP
 
 #include <boost/mpl/at.hpp>
-#include <tml/enable_if_type.hpp>
+#include <yaul/tml/enable_if_type.hpp>
 
 namespace txpl { namespace vm {
 /** \ingroup VmGroup
@@ -29,7 +29,7 @@ template<typename Symbol, typename Enable = void> struct symbol_traits;
 template<typename Symbol>
 struct symbol_traits<
     Symbol
-  , typename tml::enable_if_type<
+  , typename yaul::tml::enable_if_type<
       typename boost::mpl::at_c<typename Symbol::types, 2>::type
     >::type
   >

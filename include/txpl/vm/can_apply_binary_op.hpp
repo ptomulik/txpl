@@ -15,8 +15,8 @@
 
 #include <txpl/vm/apply_binary_op.hpp>
 #include <txpl/vm/op_t.hpp>
-#include <tml/enable_if_type.hpp>
-#include <tml/bool.hpp>
+#include <yaul/tml/enable_if_type.hpp>
+#include <yaul/tml/bool.hpp>
 
 namespace txpl { namespace vm {
 /** \ingroup VmGroup
@@ -31,8 +31,8 @@ namespace txpl { namespace vm {
  *
  * This meta-function is used to check at compile time if a binary operator
  * \e Op can be applied to operands of (possibly different) types \e T1, \e T2.
- * The meta-function evaluates to `tml::true_` if the operation is supported
- * by the C++ standard (compiler) and to `tml::false_` elsewhere.
+ * The meta-function evaluates to `yaul::tml::true_` if the operation is supported
+ * by the C++ standard (compiler) and to `yaul::tml::false_` elsewhere.
  *
  * The meta-function is used to dispatch at compile time the operations
  * supported by C++ standard to appropriate operator handlers and all the
@@ -44,7 +44,7 @@ namespace txpl { namespace vm {
  * \snippet can_apply_binary_op1.cpp Output
  */ // }}}
 template<op_t Op, typename T1, typename T2, typename Enable = void>
-struct can_apply_binary_op : tml::false_ { };
+struct can_apply_binary_op : yaul::tml::false_ { };
 /** // doc: can_apply_binary_op {{{
  * \brief Partial specialization of \ref txpl::vm::can_apply_binary_op
  *        "vm::can_apply_binary_op<>" for supported binary operations.
@@ -52,11 +52,11 @@ struct can_apply_binary_op : tml::false_ { };
 template<op_t Op, typename T1, typename T2>
 struct can_apply_binary_op<
     Op, T1, T2
-  , typename tml::enable_if_type<
+  , typename yaul::tml::enable_if_type<
       decltype(apply_binary_op<Op>::apply(T1(),T2()))
     >::type
 >
-  : tml::true_ { };
+  : yaul::tml::true_ { };
 /** @} */
 } } // end namespace txpl::vm
 

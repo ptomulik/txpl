@@ -9,9 +9,9 @@
 project txpl
   : requirements
     <include>include
-    <include>external/tml/include
+    <include>external/yaul-tml/include
   : usage-requirements
     <include>include
-    <include>external/tml/include
+    <include>external/yaul-tml/include
   : build-dir bin.v2
   ;

@@ -14,7 +14,7 @@
 #define TXPL_VM_VALUE_TRAITS_HPP
 
 #include <boost/mpl/at.hpp>
-#include <tml/enable_if_type.hpp>
+#include <yaul/tml/enable_if_type.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: value_traits {{{
@@ -27,7 +27,7 @@ template<typename Value, typename Enable = void> struct value_traits;
 template<typename Value>
 struct value_traits<
     Value
-  , typename tml::enable_if_type<
+  , typename yaul::tml::enable_if_type<
       typename boost::mpl::at_c<typename Value::types, 6>::type
     >::type
   >
