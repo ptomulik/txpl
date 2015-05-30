@@ -19,7 +19,7 @@
 #include <txpl/ast/symbol.hpp>
 #include <txpl/ast/braced_expr.hpp>
 #include <txpl/ast/array_expr.hpp>
-#include <boost/variant/recursive_variant.hpp>
+#include <yaul/variant/recursive_variant.hpp>
 
 namespace txpl { namespace ast {
 /** \ingroup AstGroup
@@ -41,11 +41,11 @@ struct expr<Iterator, Value, 0ul>
    * \brief Variant type used to represent the actual expression that was
    *        recognized by \ref ExpressionSyntaxParserRules "expr0" rule
    */ // }}}
-  typedef boost::variant<
+  typedef yaul::variant<
     literal<Iterator, Value>
   , symbol<Iterator>
-  , boost::recursive_wrapper<braced_expr<Iterator, Value> >
-  , boost::recursive_wrapper<array_expr<Iterator, Value> >
+  , yaul::recursive_wrapper<braced_expr<Iterator, Value> >
+  , yaul::recursive_wrapper<array_expr<Iterator, Value> >
   > expr_type;
   /** doc: expr {{{
    * \brief Variant value used to store the actual AST node that was

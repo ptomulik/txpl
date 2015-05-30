@@ -16,14 +16,14 @@
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/vm/array_fwd.hpp>
 #include <txpl/vm/dict_fwd.hpp>
-#include <boost/variant/recursive_variant.hpp>
+#include <yaul/variant/recursive_variant.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: value {{{
  * \todo Write documenation
  */ // }}}
 template<typename BasicTypes = basic_types<> >
-using value = typename boost::make_recursive_variant<
+using value = typename yaul::make_recursive_variant<
       typename BasicTypes::blank_type
     , typename BasicTypes::char_type
     , typename BasicTypes::int_type
@@ -31,8 +31,8 @@ using value = typename boost::make_recursive_variant<
     , typename BasicTypes::real_type
     , typename BasicTypes::string_type
     , typename BasicTypes::regex_type
-    , array_fwd<boost::recursive_variant_>
-    , dict_fwd<boost::recursive_variant_>
+    , array_fwd<yaul::recursive_variant_>
+    , dict_fwd<yaul::recursive_variant_>
 >::type;
 } } // end namespace txpl::vm
 

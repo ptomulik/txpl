@@ -14,14 +14,14 @@
 #define TXPL_AST_VALUE_HPP
 
 #include <txpl/ast/basic_types.hpp>
-#include <boost/variant/variant.hpp>
+#include <yaul/variant/variant.hpp>
 
 namespace txpl { namespace ast {
 /** // doc: value {{{
  * \todo Write documenation
  */ // }}}
 template<typename BasicTypes = basic_types<> >
-using value = boost::variant<
+using value = yaul::variant<
       typename BasicTypes::blank_type
     , typename BasicTypes::char_type
     , typename BasicTypes::int_type
@@ -46,7 +46,7 @@ template<
   , typename String
   , typename Regex
   >
-struct value_traits<boost::variant<Blank, Char, Int, Bool, Real, String, Regex> >
+struct value_traits<yaul::variant<Blank, Char, Int, Bool, Real, String, Regex> >
 {
   /** // doc: blank_type {{{
    * \todo Write documentation

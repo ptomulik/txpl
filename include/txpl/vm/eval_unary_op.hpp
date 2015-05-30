@@ -20,7 +20,7 @@
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/array.hpp>
 #include <yaul/tml/bool.hpp>
-#include <boost/variant/static_visitor.hpp>
+#include <yaul/variant/static_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_unary_op_visitor {{{
@@ -34,11 +34,11 @@ namespace txpl { namespace vm {
  * the \ref txpl::vm::apply_unary_op "vm::apply_unary_op<>" or to
  * indicate an error if the operands provided to the functor are not
  * compatible with the given operator \e Op. This visitor is intended to be
- * called by one of `boost::apply_visitor()` functions.
+ * called by one of `yaul::apply_visitor()` functions.
  */ // }}}
 template<op_t Op, typename Value>
 struct eval_unary_op_visitor
-  : boost::static_visitor<bool>
+  : yaul::static_visitor<bool>
 {
   /** // doc: eval_unary_op_visitor() {{{
    * \brief Constructor
@@ -100,7 +100,7 @@ protected:
     for(size_t i = 0; i != r.size(); ++i)
       {
         auto op = eval_unary_op_visitor<Op,Value>(r[i]);
-        if(!boost::apply_visitor(op, x[i]))
+        if(!yaul::apply_visitor(op, x[i]))
           return false;
       }
     result = std::forward<array<Value> >(r);

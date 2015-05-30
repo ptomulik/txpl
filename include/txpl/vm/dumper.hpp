@@ -18,8 +18,8 @@
 #include <txpl/vm/value_traits.hpp>
 #include <txpl/vm/array.hpp>
 #include <txpl/vm/dict.hpp>
-#include <boost/variant/static_visitor.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/static_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 #include <regex>
 #include <string>
 #include <ostream>
@@ -37,7 +37,7 @@ struct dumper_visitor;
  */ // }}}
 template<typename Value, typename CharT, typename Traits>
 struct dumper_visitor<Value, std::basic_ostream<CharT, Traits> >
-  : boost::static_visitor<std::basic_ostream<CharT, Traits>&>
+  : yaul::static_visitor<std::basic_ostream<CharT, Traits>&>
 {
   /** // doc: ostream_type {{{
    * \todo Write documentation

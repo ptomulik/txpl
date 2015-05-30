@@ -15,7 +15,7 @@
 
 #include <boost/algorithm/string/find.hpp>
 #include <boost/range/iterator_range_core.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <string>
 #include <utility>
 
@@ -113,7 +113,7 @@ private:
           }
         else
           {
-            Map* mp = boost::get<Map>(&it->second);
+            Map* mp = yaul::get<Map>(&it->second);
             if(mp)
               {
                 // Use existing map found in it->second

@@ -15,7 +15,7 @@
 
 #include <boost/algorithm/string/find.hpp>
 #include <boost/range/iterator_range_core.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <string>
 
 namespace txpl { namespace vm {
@@ -103,7 +103,7 @@ private:
         // Recursion (if it's map)
         Range newhead = Range(head.begin(), sep.begin());
         Range newtail = Range(sep.end(), tail.end());
-        Map* mp = boost::get<Map>(&it->second);
+        Map* mp = yaul::get<Map>(&it->second);
         if(!mp)
           {
             _ehandler(detail_type::strerr_not_a_map(newhead));

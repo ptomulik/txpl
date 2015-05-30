@@ -16,7 +16,7 @@
 #include <txpl/ast/unary_expr.hpp>
 #include <txpl/vm/eval.hpp>
 #include <txpl/vm/eval_unary_op.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_impl<ast::unary_expr> {{{
@@ -50,28 +50,28 @@ struct eval_impl<ast::unary_expr<Iterator, Value> >
     switch(node.operator_)
       {
         case op_t::plus_:
-          if(!boost::apply_visitor(eval_unary_op<op_t::plus_>(result), subresult))
+          if(!yaul::apply_visitor(eval_unary_op<op_t::plus_>(result), subresult))
             {
               ff("wrong type argument to unary operator '+'");
               return false;
             }
           break;
         case op_t::minus_:
-          if(!boost::apply_visitor(eval_unary_op<op_t::minus_>(result), subresult))
+          if(!yaul::apply_visitor(eval_unary_op<op_t::minus_>(result), subresult))
             {
               ff("wrong type argument to unary operator '-'");
               return false;
             }
           break;
         case op_t::not_:
-          if(!boost::apply_visitor(eval_unary_op<op_t::not_>(result), subresult))
+          if(!yaul::apply_visitor(eval_unary_op<op_t::not_>(result), subresult))
             {
               ff("wrong type argument to unary operator '!'");
               return false;
             }
           break;
         case op_t::neg_:
-          if(!boost::apply_visitor(eval_unary_op<op_t::neg_>(result), subresult))
+          if(!yaul::apply_visitor(eval_unary_op<op_t::neg_>(result), subresult))
             {
               ff("wrong type argument to unary operator '~'");
               return false;

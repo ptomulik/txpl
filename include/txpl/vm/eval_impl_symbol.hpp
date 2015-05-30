@@ -15,7 +15,7 @@
 
 #include <txpl/ast/symbol.hpp>
 #include <txpl/vm/scope_lookup.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <string>
 
 namespace txpl { namespace vm {
@@ -40,7 +40,7 @@ struct eval_impl<ast::symbol<Iterator> >
     auto ff = [f, node] (std::string const& s) { f(node.begin(), node.end(), s); };
     if(!scope_lookup(context.global_scope, context.current_scope, node.name, sym, ff))
       return false;
-    Value *vp = boost::get<Value>(&sym);
+    Value *vp = yaul::get<Value>(&sym);
     if(!vp)
       {
         // FIXME: once the type names get implemented, this message should be

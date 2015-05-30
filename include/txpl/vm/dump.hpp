@@ -14,7 +14,7 @@
 #define TXPL_VM_DUMP_HPP
 
 #include <txpl/vm/dumper.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm { 
 /** // doc: dump() {{{
@@ -23,7 +23,7 @@ namespace txpl { namespace vm {
  */ // }}}
 template<typename Ostream, typename Value>
 Ostream& dump(Ostream& os, Value const& x)
-{ return boost::apply_visitor(dumper<Value>(os), x); }
+{ return yaul::apply_visitor(dumper<Value>(os), x); }
 } } // end namespace txpl::vm
 
 #endif /* TXPL_VM_DUMP_HPP */

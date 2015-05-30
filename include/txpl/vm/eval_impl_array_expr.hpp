@@ -16,7 +16,7 @@
 #include <txpl/ast/array_expr.hpp>
 #include <txpl/vm/eval.hpp>
 #include <txpl/vm/array.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 #include <utility>
 
 namespace txpl { namespace vm {

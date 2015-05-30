@@ -16,7 +16,7 @@
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/eval_binary_op.hpp>
 #include <txpl/vm/eval_ternary_op.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_operation_impl<Level> {{{

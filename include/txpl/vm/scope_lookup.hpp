@@ -32,7 +32,7 @@ bool scope_lookup(scope<Symbol> const& s, std::string const& start,
       if(!scope_find(s, start, sym, f))
         return false;
 
-      scope<Symbol> const* sp = boost::get<scope<Symbol> >(&sym);
+      scope<Symbol> const* sp = yaul::get<scope<Symbol> >(&sym);
       if(!sp)
         {
           f(scope_op_detail::strerr_not_a_map(start));

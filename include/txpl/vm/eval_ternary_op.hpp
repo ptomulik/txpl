@@ -21,9 +21,9 @@
 #include <txpl/vm/object.hpp>
 #include <txpl/vm/op_t.hpp>
 #include <yaul/tml/bool.hpp>
-#include <boost/variant/apply_visitor.hpp>
-#include <boost/variant/static_visitor.hpp>
-#include <boost/variant/multivisitors.hpp>
+#include <yaul/variant/apply_visitor.hpp>
+#include <yaul/variant/static_visitor.hpp>
+#include <yaul/variant/multivisitors.hpp>
 #include <utility>
 
 namespace txpl { namespace vm {
@@ -38,11 +38,11 @@ namespace txpl { namespace vm {
  * the \ref txpl::vm::apply_ternary_op "vm::apply_ternary_op<>" or to
  * indicate an error if the operands provided to the functor are not
  * compatible with the given operator \e Op. This visitor is intended to be
- * called by one of `boost::apply_visitor()` functions.
+ * called by one of `yaul::apply_visitor()` functions.
  */ // }}}
 template<op_t Op, typename Value>
 struct eval_ternary_op_visitor
-  : boost::static_visitor<bool>
+  : yaul::static_visitor<bool>
 {
   /** // doc: Array {{{
    * \brief Array of values of \e Values
@@ -123,7 +123,7 @@ protected:
     for(size_t i = 0; i != r.size(); ++i)
       {
         auto op = eval_ternary_op_visitor<Op, Value>(r[i]);
-        if(!boost::apply_visitor(op, x1[i], x2[i], x3[i]))
+        if(!yaul::apply_visitor(op, x1[i], x2[i], x3[i]))
           return false;
       }
     result = std::forward<array<Value> >(r);

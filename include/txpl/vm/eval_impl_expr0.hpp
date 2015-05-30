@@ -34,7 +34,7 @@ struct eval_impl<ast::expr<Iterator, Value, 0ul> >
   template<typename Context, typename Result, typename Ehandler, typename Range>
   static bool
   apply(node_type const& node, Context const& context, Result& result, Ehandler f, Range const&)
-  { return boost::apply_visitor(eval_variant(context, result, f), node.expr); }
+  { return yaul::apply_visitor(eval_variant(context, result, f), node.expr); }
 };
 } } // end namespace txpl::vm
 

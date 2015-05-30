@@ -18,7 +18,7 @@
 #include <txpl/ast/expr.hpp>
 #include <txpl/ast/node.hpp>
 #include <txpl/ast/unary_expr.hpp>
-#include <boost/variant/recursive_variant.hpp>
+#include <yaul/variant/recursive_variant.hpp>
 
 namespace txpl { namespace ast {
 /** \ingroup AstGroup
@@ -40,9 +40,9 @@ struct expr<Iterator, Value, 3ul>
    * \brief Variant type used to represent the actual expression that was
    *        recognized by \ref ExpressionSyntaxParserRules "expr3" rule
    */ // }}}
-  typedef boost::variant<
-    boost::recursive_wrapper<unary_expr<Iterator, Value> >
-  , boost::recursive_wrapper<expr<Iterator, Value, 2ul> >
+  typedef yaul::variant<
+    yaul::recursive_wrapper<unary_expr<Iterator, Value> >
+  , yaul::recursive_wrapper<expr<Iterator, Value, 2ul> >
   > expr_type;
   /** doc: expr {{{
    * \brief Variant value used to store the actual AST node that was

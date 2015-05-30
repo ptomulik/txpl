@@ -14,7 +14,7 @@
 #define TXPL_VM_EVAL_VARIANT_HPP
 
 #include <txpl/vm/eval.hpp>
-#include <boost/variant/static_visitor.hpp>
+#include <yaul/variant/static_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_variant_visitor {{{
@@ -22,7 +22,7 @@ namespace txpl { namespace vm {
  */ // }}}
 template<typename Context, typename Value, typename Ehandler>
 struct eval_variant_visitor
-  : boost::static_visitor<bool>
+  : yaul::static_visitor<bool>
 {
   /** // doc: eval_variant_visitor() {{{
    * \brief Default constructor

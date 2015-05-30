@@ -15,7 +15,7 @@
 
 #include <boost/algorithm/string/find.hpp>
 #include <boost/range/iterator_range_core.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <string>
 
 namespace txpl { namespace vm {
@@ -105,7 +105,7 @@ private:
       }
 
     Range newhead = Range(head.begin(), sep.begin());
-    Map const* submap = boost::get<Map const>(&variant);
+    Map const* submap = yaul::get<Map const>(&variant);
     if(!submap)
       {
         _ehandler(detail_type::strerr_not_a_map(newhead));

@@ -15,7 +15,7 @@
 
 #include <txpl/vm/scope_fwd.hpp>
 #include <txpl/vm/value.hpp>
-#include <boost/variant/recursive_variant.hpp>
+#include <yaul/variant/recursive_variant.hpp>
 #include <boost/blank.hpp>
 #include <map>
 
@@ -24,10 +24,10 @@ namespace txpl { namespace vm {
  * \todo Write documentation
  */ // }}}
 template<typename Value = value<> >
-using symbol = typename boost::make_recursive_variant<
+using symbol = typename yaul::make_recursive_variant<
     boost::blank
   , Value
-  , scope_fwd<boost::recursive_variant_>
+  , scope_fwd<yaul::recursive_variant_>
 >::type;
 } } // end namespace txpl::vm
 

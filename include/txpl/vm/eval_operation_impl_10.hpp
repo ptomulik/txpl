@@ -17,7 +17,7 @@
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/eval_binary_op.hpp>
 #include <txpl/vm/eval_ternary_op.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_operation_impl<10ul> {{{
@@ -36,7 +36,7 @@ struct eval_operation_impl<10ul>
     switch(op)
     {
       case op_t::xor_:
-        if(!boost::apply_visitor(eval_binary_op<op_t::xor_>(lhs), lhs, rhs))
+        if(!yaul::apply_visitor(eval_binary_op<op_t::xor_>(lhs), lhs, rhs))
           {
             f("invalid operands to binary operator '^'");
             return false;

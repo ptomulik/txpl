@@ -16,7 +16,7 @@
 #include <txpl/vm/eval_operation_impl_fwd.hpp>
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/eval_binary_op.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_operation_impl<7ul> {{{
@@ -35,28 +35,28 @@ struct eval_operation_impl<7ul>
     switch(op)
     {
       case op_t::lt_:
-        if(!boost::apply_visitor(eval_binary_op<op_t::lt_>(lhs), lhs, rhs))
+        if(!yaul::apply_visitor(eval_binary_op<op_t::lt_>(lhs), lhs, rhs))
           {
             f("invalid operands to binary operator '<'");
             return false;
           }
         break;
       case op_t::gt_:
-        if(!boost::apply_visitor(eval_binary_op<op_t::gt_>(lhs), lhs, rhs))
+        if(!yaul::apply_visitor(eval_binary_op<op_t::gt_>(lhs), lhs, rhs))
           {
             f("invalid operands to binary operator '>'");
             return false;
           }
         break;
       case op_t::le_:
-        if(!boost::apply_visitor(eval_binary_op<op_t::le_>(lhs), lhs, rhs))
+        if(!yaul::apply_visitor(eval_binary_op<op_t::le_>(lhs), lhs, rhs))
           {
             f("invalid operands to binary operator '<='");
             return false;
           }
         break;
       case op_t::ge_:
-        if(!boost::apply_visitor(eval_binary_op<op_t::ge_>(lhs), lhs, rhs))
+        if(!yaul::apply_visitor(eval_binary_op<op_t::ge_>(lhs), lhs, rhs))
           {
             f("invalid operands to binary operator '>='");
             return false;

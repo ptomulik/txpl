@@ -16,7 +16,7 @@
 #include <txpl/vm/eval_operation_impl_fwd.hpp>
 #include <txpl/vm/op_t.hpp>
 #include <txpl/vm/eval_ternary_op.hpp>
-#include <boost/variant/apply_visitor.hpp>
+#include <yaul/variant/apply_visitor.hpp>
 
 namespace txpl { namespace vm {
 /** // doc: eval_operation_impl<14ul> {{{
@@ -35,7 +35,7 @@ struct eval_operation_impl<14ul>
     switch(op)
     {
       case op_t::qmark_:
-        if(!boost::apply_visitor(eval_ternary_op<op_t::qmark_>(lhs), lhs, rhs[0], rhs[1]))
+        if(!yaul::apply_visitor(eval_ternary_op<op_t::qmark_>(lhs), lhs, rhs[0], rhs[1]))
           {
             f("invalid operands to conditional operator '?:'");
             return false;

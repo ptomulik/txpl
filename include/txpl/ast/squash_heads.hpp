@@ -14,7 +14,7 @@
 #define TXPL_AST_SQUASH_HEADS_HPP_INCLUDED
 
 #include <txpl/ast/nodes.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 namespace txpl { namespace ast {
 /** // doc: squash_heads() {{{
@@ -38,11 +38,11 @@ template<typename Iterator, typename Value>
 static typename ast::expr<Iterator, Value, 0ul>::expr_type const&
 squash_heads(ast::expr<Iterator, Value, 3ul> const& x)
 {
-  expr<Iterator, Value, 2ul>* expr2 = boost::get<expr<Iterator, Value, 2ul> >(&x.expr);
+  expr<Iterator, Value, 2ul>* expr2 = yaul::get<expr<Iterator, Value, 2ul> >(&x.expr);
   if(expr2)
     return squash_heads(*expr2);
   else
-    return squash_heads(boost::get<unary_expr<Iterator, Value> >(x.expr));
+    return squash_heads(yaul::get<unary_expr<Iterator, Value> >(x.expr));
 }
 /** // doc: squash_heads() {{{
  * \todo Write documentation
@@ -51,11 +51,11 @@ template<typename Iterator, typename Value>
 static typename ast::expr<Iterator, Value, 0ul>::expr_type&
 squash_heads(ast::expr<Iterator, Value, 3ul>& x)
 {
-  expr<Iterator, Value, 2ul>* expr2 = boost::get<expr<Iterator, Value, 2ul> >(&x.expr);
+  expr<Iterator, Value, 2ul>* expr2 = yaul::get<expr<Iterator, Value, 2ul> >(&x.expr);
   if(expr2)
     return squash_heads(*expr2);
   else
-    return squash_heads(boost::get<unary_expr<Iterator, Value> >(x.expr).expr);
+    return squash_heads(yaul::get<unary_expr<Iterator, Value> >(x.expr).expr);
 }
 /** // doc: squash_heads() {{{
  * \todo Write documentation
