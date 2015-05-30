@@ -1,3 +1,6 @@
 [submodule "external/yaul-tml"]
 	path = external/yaul-tml
 	url = ../yaul-tml
+[submodule "external/yaul-variant"]
+	path = external/yaul-variant
+	url = ../yaul-variant
