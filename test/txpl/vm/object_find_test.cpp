@@ -2,7 +2,7 @@
 // 
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost::org/LICENSE_1_0.txt)
+// http://www.boost.org/LICENSE_1_0.txt)
 #define BOOST_TEST_MODULE test_txpl_vm_object_find
 
 #include <txpl/test_config.hpp>
@@ -13,7 +13,7 @@
 #include <txpl/vm/object_find.hpp>
 #include <txpl/vm/value.hpp>
 #include <txpl/vm/basic_types.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <type_traits>
 
 struct error_handler
@@ -26,7 +26,7 @@ struct error_handler
 BOOST_AUTO_TEST_CASE(test__object_find)
 {
   using namespace txpl::vm;
-  using boost::get;
+  using yaul::get;
 
   typedef basic_types<>::int_type int_type;
 

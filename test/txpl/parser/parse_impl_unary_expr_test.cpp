@@ -14,13 +14,13 @@
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/lexer/token.hpp>
 #include <txpl/ast/squash_heads.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse_impl_unary_expr)
 {
   using namespace txpl::parser;
   using namespace txpl;
-  using boost::get;
+  using yaul::get;
 
   typedef lexer::token<> const* token_iterator;
 

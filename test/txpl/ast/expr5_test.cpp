@@ -15,7 +15,7 @@
 BOOST_AUTO_TEST_CASE(test__expr5__literal)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   // FIXME: implement some tests
   BOOST_CHECK(true);

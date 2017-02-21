@@ -13,8 +13,8 @@
 #include <txpl/vm/eval_binary_op.hpp>
 #include <txpl/vm/basic_types.hpp>
 #include <txpl/vm/value.hpp>
-#include <boost/variant/apply_visitor.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/apply_visitor.hpp>
+#include <yaul/variant/get.hpp>
 
 using namespace txpl::vm;
 typedef basic_types<>::char_type   char_type;
@@ -35,9 +35,9 @@ BOOST_AUTO_TEST_CASE(char__minus__char)
     const value<> v1 = char_type{'\2'};
     const value<> v2 = char_type{'\4'};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (char_type{'\2'} - char_type{'\4'}));
   }
 }
@@ -50,9 +50,9 @@ BOOST_AUTO_TEST_CASE(char__minus__int)
     const value<> v1 = char_type{'\2'};
     const value<> v2 = int_type{4};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (char_type{'\2'} - int_type{4}));
   }
 }
@@ -65,9 +65,9 @@ BOOST_AUTO_TEST_CASE(char__minus__bool)
     const value<> v1 = char_type{'\3'};
     const value<> v2 = bool_type{true};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (char_type{'\3'} - bool_type{true}));
   }
 }
@@ -80,9 +80,9 @@ BOOST_AUTO_TEST_CASE(char__minus__real)
     const value<> v1 = char_type{'\2'};
     const value<> v2 = real_type{2.1};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (char_type{'\2'} - real_type{2.1}));
   }
 }
@@ -95,8 +95,8 @@ BOOST_AUTO_TEST_CASE(char__minus__string)
     const value<> v1 = char_type{'a'};
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(char__minus__regex)
@@ -108,8 +108,8 @@ BOOST_AUTO_TEST_CASE(char__minus__regex)
     const value<> v1 = char_type{'a'};
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(char__minus__array)
@@ -121,8 +121,8 @@ BOOST_AUTO_TEST_CASE(char__minus__array)
     const value<> v1 = char_type{'a'};
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(char__minus__object)
@@ -134,8 +134,8 @@ BOOST_AUTO_TEST_CASE(char__minus__object)
     const value<> v1 = char_type{'a'};
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -148,9 +148,9 @@ BOOST_AUTO_TEST_CASE(int__minus__char)
     const value<> v1 = int_type{2};
     const value<> v2 = char_type{'\3'};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (int_type{2} - char_type{'\3'}));
   }
 }
@@ -163,9 +163,9 @@ BOOST_AUTO_TEST_CASE(int__minus__int)
     const value<> v1 = int_type{2};
     const value<> v2 = int_type{3};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (int_type{2} - int_type{3}));
   }
 }
@@ -178,9 +178,9 @@ BOOST_AUTO_TEST_CASE(int__minus__bool)
     const value<> v1 = int_type{3};
     const value<> v2 = bool_type{true};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (int_type{3} - bool_type{true}));
   }
 }
@@ -193,9 +193,9 @@ BOOST_AUTO_TEST_CASE(int__minus__real)
     const value<> v1 = int_type{12};
     const value<> v2 = real_type{3.21};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (int_type{12} - real_type{3.21}));
   }
 }
@@ -208,8 +208,8 @@ BOOST_AUTO_TEST_CASE(int__minus__string)
     const value<> v1 = int_type{0};
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(int__minus__regex)
@@ -221,8 +221,8 @@ BOOST_AUTO_TEST_CASE(int__minus__regex)
     const value<> v1 = int_type{0};
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(int__minus__array)
@@ -234,8 +234,8 @@ BOOST_AUTO_TEST_CASE(int__minus__array)
     const value<> v1 = int_type{0};
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(int__minus__object)
@@ -247,8 +247,8 @@ BOOST_AUTO_TEST_CASE(int__minus__object)
     const value<> v1 = int_type{0};
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -261,9 +261,9 @@ BOOST_AUTO_TEST_CASE(bool__minus__char)
     const value<> v1 = bool_type{true};
     const value<> v2 = char_type{'\3'};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (bool_type{true} - char_type{'\3'}));
   }
 }
@@ -276,9 +276,9 @@ BOOST_AUTO_TEST_CASE(bool__minus__int)
     const value<> v1 = bool_type{true};
     const value<> v2 = int_type{3};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (bool_type{true} - int_type{3}));
   }
 }
@@ -291,9 +291,9 @@ BOOST_AUTO_TEST_CASE(bool__minus__bool)
     const value<> v1 = bool_type{true};
     const value<> v2 = bool_type{true};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     int_type x = int_type{654};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(r));
     BOOST_CHECK(x == (bool_type{true} - bool_type{true}));
   }
 }
@@ -306,9 +306,9 @@ BOOST_AUTO_TEST_CASE(bool__minus__real)
     const value<> v1 = bool_type{true};
     const value<> v2 = real_type{2.12};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (bool_type{true} - real_type{2.12}));
   }
 }
@@ -321,8 +321,8 @@ BOOST_AUTO_TEST_CASE(bool__minus__string)
     const value<> v1 = bool_type{false};
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(bool__minus__regex)
@@ -334,8 +334,8 @@ BOOST_AUTO_TEST_CASE(bool__minus__regex)
     const value<> v1 = bool_type{false};
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(bool__minus__array)
@@ -347,8 +347,8 @@ BOOST_AUTO_TEST_CASE(bool__minus__array)
     const value<> v1 = bool_type{false};
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(bool__minus__object)
@@ -360,8 +360,8 @@ BOOST_AUTO_TEST_CASE(bool__minus__object)
     const value<> v1 = bool_type{false};
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -374,9 +374,9 @@ BOOST_AUTO_TEST_CASE(real__minus__char)
     const value<> v1 = real_type{1.2};
     const value<> v2 = char_type{'\3'};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (real_type{1.2} - char_type{'\3'}));
   }
 }
@@ -389,9 +389,9 @@ BOOST_AUTO_TEST_CASE(real__minus__int)
     const value<> v1 = real_type{1.2};
     const value<> v2 = int_type{3};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (real_type{1.2} - int_type{3}));
   }
 }
@@ -404,9 +404,9 @@ BOOST_AUTO_TEST_CASE(real__minus__bool)
     const value<> v1 = real_type{1.2};
     const value<> v2 = bool_type{true};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (real_type{1.2} - bool_type{true}));
   }
 }
@@ -419,9 +419,9 @@ BOOST_AUTO_TEST_CASE(real__minus__real)
     const value<> v1 = real_type{1.2};
     const value<> v2 = real_type{3.4};
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
     real_type x = real_type{.654};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(r));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(r));
     BOOST_CHECK(x == (real_type{1.2} - real_type{3.4}));
   }
 }
@@ -434,8 +434,8 @@ BOOST_AUTO_TEST_CASE(real__minus__string)
     const value<> v1 = real_type{0.0};
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(real__minus__regex)
@@ -447,8 +447,8 @@ BOOST_AUTO_TEST_CASE(real__minus__regex)
     const value<> v1 = real_type{0.0};
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(real__minus__array)
@@ -460,8 +460,8 @@ BOOST_AUTO_TEST_CASE(real__minus__array)
     const value<> v1 = real_type{0.0};
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(real__minus__object)
@@ -473,8 +473,8 @@ BOOST_AUTO_TEST_CASE(real__minus__object)
     const value<> v1 = real_type{0.0};
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -487,8 +487,8 @@ BOOST_AUTO_TEST_CASE(string__minus__char)
     const value<> v1 = string_type();
     const value<> v2 = char_type{'a'};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__int)
@@ -500,8 +500,8 @@ BOOST_AUTO_TEST_CASE(string__minus__int)
     const value<> v1 = string_type();
     const value<> v2 = int_type{0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__bool)
@@ -513,8 +513,8 @@ BOOST_AUTO_TEST_CASE(string__minus__bool)
     const value<> v1 = string_type();
     const value<> v2 = bool_type{false};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__real)
@@ -526,8 +526,8 @@ BOOST_AUTO_TEST_CASE(string__minus__real)
     const value<> v1 = string_type();
     const value<> v2 = real_type{0.0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__string)
@@ -539,8 +539,8 @@ BOOST_AUTO_TEST_CASE(string__minus__string)
     const value<> v1 = string_type("asd");
     const value<> v2 = string_type{"qwer"};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__regex)
@@ -552,8 +552,8 @@ BOOST_AUTO_TEST_CASE(string__minus__regex)
     const value<> v1 = string_type();
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__array)
@@ -565,8 +565,8 @@ BOOST_AUTO_TEST_CASE(string__minus__array)
     const value<> v1 = string_type();
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(string__minus__object)
@@ -578,8 +578,8 @@ BOOST_AUTO_TEST_CASE(string__minus__object)
     const value<> v1 = string_type();
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -592,8 +592,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__char)
     const value<> v1 = regex_type();
     const value<> v2 = char_type{'\0'};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__int)
@@ -605,8 +605,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__int)
     const value<> v1 = regex_type();
     const value<> v2 = int_type{0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__bool)
@@ -618,8 +618,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__bool)
     const value<> v1 = regex_type();
     const value<> v2 = bool_type{false};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__real)
@@ -631,8 +631,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__real)
     const value<> v1 = regex_type();
     const value<> v2 = real_type{0.0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__string)
@@ -644,8 +644,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__string)
     const value<> v1 = regex_type();
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__regex)
@@ -657,8 +657,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__regex)
     const value<> v1 = regex_type();
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__array)
@@ -670,8 +670,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__array)
     const value<> v1 = regex_type();
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(regex__minus__object)
@@ -683,8 +683,8 @@ BOOST_AUTO_TEST_CASE(regex__minus__object)
     const value<> v1 = regex_type();
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -697,8 +697,8 @@ BOOST_AUTO_TEST_CASE(array__minus__char)
     const value<> v1 = array_type();
     const value<> v2 = char_type{'\0'};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__int)
@@ -710,8 +710,8 @@ BOOST_AUTO_TEST_CASE(array__minus__int)
     const value<> v1 = array_type();
     const value<> v2 = int_type{0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__bool)
@@ -723,8 +723,8 @@ BOOST_AUTO_TEST_CASE(array__minus__bool)
     const value<> v1 = array_type();
     const value<> v2 = bool_type{false};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__real)
@@ -736,8 +736,8 @@ BOOST_AUTO_TEST_CASE(array__minus__real)
     const value<> v1 = array_type();
     const value<> v2 = real_type{0.0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__string)
@@ -749,8 +749,8 @@ BOOST_AUTO_TEST_CASE(array__minus__string)
     const value<> v1 = array_type();
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__regex)
@@ -762,8 +762,8 @@ BOOST_AUTO_TEST_CASE(array__minus__regex)
     const value<> v1 = array_type();
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__array)
@@ -775,8 +775,8 @@ BOOST_AUTO_TEST_CASE(array__minus__array)
     const value<> v1 = array_type();
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<array_type>(r));
+    BOOST_CHECK(yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<array_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(array__minus__object)
@@ -788,8 +788,8 @@ BOOST_AUTO_TEST_CASE(array__minus__object)
     const value<> v1 = array_type();
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 
@@ -802,8 +802,8 @@ BOOST_AUTO_TEST_CASE(object__minus__char)
     const value<> v1 = object_type();
     const value<> v2 = char_type{'\0'};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__int)
@@ -815,8 +815,8 @@ BOOST_AUTO_TEST_CASE(object__minus__int)
     const value<> v1 = object_type();
     const value<> v2 = int_type{0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__bool)
@@ -828,8 +828,8 @@ BOOST_AUTO_TEST_CASE(object__minus__bool)
     const value<> v1 = object_type();
     const value<> v2 = bool_type{false};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__real)
@@ -841,8 +841,8 @@ BOOST_AUTO_TEST_CASE(object__minus__real)
     const value<> v1 = object_type();
     const value<> v2 = real_type{0.0};
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__string)
@@ -854,8 +854,8 @@ BOOST_AUTO_TEST_CASE(object__minus__string)
     const value<> v1 = object_type();
     const value<> v2 = string_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__regex)
@@ -867,8 +867,8 @@ BOOST_AUTO_TEST_CASE(object__minus__regex)
     const value<> v1 = object_type();
     const value<> v2 = regex_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__array)
@@ -880,8 +880,8 @@ BOOST_AUTO_TEST_CASE(object__minus__array)
     const value<> v1 = object_type();
     const value<> v2 = array_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 BOOST_AUTO_TEST_CASE(object__minus__object)
@@ -893,8 +893,8 @@ BOOST_AUTO_TEST_CASE(object__minus__object)
     const value<> v1 = object_type();
     const value<> v2 = object_type();
     r = blank_type();
-    BOOST_CHECK(!boost::apply_visitor(op, v1, v2));
-    BOOST_CHECK_NO_THROW(boost::get<blank_type>(r));
+    BOOST_CHECK(!yaul::apply_visitor(op, v1, v2));
+    BOOST_CHECK_NO_THROW(yaul::get<blank_type>(r));
   }
 }
 

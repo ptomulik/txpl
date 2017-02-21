@@ -13,12 +13,12 @@
 #include <txpl/ast/unary_expr.hpp>
 #include <txpl/ast/basic_types.hpp>
 #include <txpl/ast/squash_heads.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__unary_expr__literal)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   typedef const char* Iterator; // this should be token iterator in fact
   typedef unary_expr<Iterator>::operator_type operator_type;

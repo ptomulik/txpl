@@ -12,7 +12,7 @@
 
 #include <txpl/vm/symbol.hpp>
 #include <txpl/vm/scope.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(defaults)
 {
@@ -20,11 +20,11 @@ BOOST_AUTO_TEST_CASE(defaults)
   symbol<> sym;
   scope<symbol<> > s;
   value<> v;
-  BOOST_CHECK_NO_THROW(boost::get<boost::blank>(sym));
+  BOOST_CHECK_NO_THROW(yaul::get<boost::blank>(sym));
   sym = v;
-  BOOST_CHECK_NO_THROW(boost::get<value<> >(sym));
+  BOOST_CHECK_NO_THROW(yaul::get<value<> >(sym));
   sym = s;
-  BOOST_CHECK_NO_THROW(boost::get<scope<symbol<> > >(sym));
+  BOOST_CHECK_NO_THROW(yaul::get<scope<symbol<> > >(sym));
 }
 #else
 BOOST_AUTO_TEST_CASE(dummy)

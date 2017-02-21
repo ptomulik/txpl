@@ -11,8 +11,8 @@
 #ifndef TXPL_TEST_SKIP_VM_TREE_FINDER
 
 #include <txpl/vm/tree_finder.hpp>
-#include <boost/variant/recursive_variant.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/recursive_variant.hpp>
+#include <yaul/variant/get.hpp>
 #include <map>
 #include <string>
 #include <type_traits>
@@ -57,7 +57,7 @@ private:
   std::string& _emsg;
 };
 
-typedef boost::make_recursive_variant<int, std::map<std::string, boost::recursive_variant_> >::type Variant;
+typedef yaul::make_recursive_variant<int, std::map<std::string, yaul::recursive_variant_> >::type Variant;
 typedef std::map<std::string, Variant> Map;
 
 BOOST_AUTO_TEST_CASE(test_sep_finder_typedefs)
@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(test_sep_finder_typedefs)
 BOOST_AUTO_TEST_CASE(test_tree_finder__1)
 {
   using namespace txpl::vm;
-  using boost::get;
+  using yaul::get;
 
   typedef tree_finder<Detail,Variant,Ehandler> TF;
 

@@ -13,7 +13,7 @@
 #include <txpl/vm/scope_lookup.hpp>
 #include <txpl/vm/value.hpp>
 #include <txpl/vm/basic_types.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <type_traits>
 
 struct error_handler
@@ -26,7 +26,7 @@ struct error_handler
 BOOST_AUTO_TEST_CASE(test_lookup)
 {
   using namespace txpl::vm;
-  using boost::get;
+  using yaul::get;
 
   typedef basic_types<>::int_type int_type;
 

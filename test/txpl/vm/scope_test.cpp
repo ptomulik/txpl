@@ -13,7 +13,7 @@
 #include <txpl/vm/scope.hpp>
 #include <txpl/vm/symbol.hpp>
 #include <txpl/vm/basic_types.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 #include <string>
 #include <type_traits>
 
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_CASE(test__scope__typedefs)
 BOOST_AUTO_TEST_CASE(test__scope__map)
 {
   using namespace txpl::vm;
-  using boost::get;
+  using yaul::get;
 
   typedef basic_types<>::int_type int_type;
   scope<> s0;

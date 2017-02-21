@@ -16,13 +16,13 @@
 #include <txpl/ast/basic_types.hpp>
 #include <txpl/ast/value.hpp>
 #include <txpl/ast/squash_heads.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__parse__expr_6__literal__op__literal)
 {
   using namespace txpl::parser;
   using namespace txpl;
-  using boost::get;
+  using yaul::get;
 
   typedef lexer::token<> const* token_iterator;
 

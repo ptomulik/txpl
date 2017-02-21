@@ -16,14 +16,14 @@
 #include <txpl/ast/value.hpp>
 #include <txpl/lexer/token.hpp>
 #include <txpl/lexer/token_t.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 
 BOOST_AUTO_TEST_CASE(test__parse__expr_5__literal__op__literal)
 {
   using namespace txpl::parser;
   using namespace txpl;
-  using boost::get;
+  using yaul::get;
 
   typedef lexer::token<> const* token_iterator;
 

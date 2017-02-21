@@ -14,12 +14,12 @@
 #include <txpl/ast/basic_types.hpp>
 #include <txpl/ast/value.hpp>
 #include <txpl/ast/squash_heads.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__expr0__literal)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   typedef const char* Iterator; // this should be token iterator in fact
 
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(test__expr0__literal)
 BOOST_AUTO_TEST_CASE(test__expr0__symbol)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   typedef const char* Iterator; // this should be token iterator in fact
 
@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_CASE(test__expr0__symbol)
 BOOST_AUTO_TEST_CASE(test__expr0__braced_expr)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   typedef const char* Iterator; // this should be token iterator in fact
 

@@ -12,12 +12,12 @@
 
 #include <txpl/ast/literal.hpp>
 #include <txpl/ast/basic_types.hpp>
-#include <boost/variant/get.hpp>
+#include <yaul/variant/get.hpp>
 
 BOOST_AUTO_TEST_CASE(test__literal)
 {
   using namespace txpl::ast;
-  using boost::get;
+  using yaul::get;
 
   typedef basic_types<>::char_type char_type;
   typedef basic_types<>::int_type int_type;
@@ -34,49 +34,49 @@ BOOST_AUTO_TEST_CASE(test__literal)
     char_type x;
     literal<Iterator> l;
     l.value = char_type{'a'};
-    BOOST_CHECK_NO_THROW(x = boost::get<char_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<char_type>(l.value));
     BOOST_CHECK_EQUAL(x, char_type{'a'});
   }
   {
     int_type x;
     literal<Iterator> l;
     l.value = int_type{123};
-    BOOST_CHECK_NO_THROW(x = boost::get<int_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<int_type>(l.value));
     BOOST_CHECK_EQUAL(x, int_type{123});
   }
   {
     bool_type x;
     literal<Iterator> l;
     l.value = bool_type{true};
-    BOOST_CHECK_NO_THROW(x = boost::get<bool_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<bool_type>(l.value));
     BOOST_CHECK_EQUAL(x, bool_type{true});
   }
   {
     bool_type x;
     literal<Iterator> l;
     l.value = bool_type{false};
-    BOOST_CHECK_NO_THROW(x = boost::get<bool_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<bool_type>(l.value));
     BOOST_CHECK_EQUAL(x, bool_type{false});
   }
   {
     real_type x;
     literal<Iterator> l;
     l.value = real_type{.123};
-    BOOST_CHECK_NO_THROW(x = boost::get<real_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<real_type>(l.value));
     BOOST_CHECK_EQUAL(x, real_type{.123});
   }
   {
     string_type x;
     literal<Iterator> l;
     l.value  = string_type("a string");
-    BOOST_CHECK_NO_THROW(x = boost::get<string_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<string_type>(l.value));
     BOOST_CHECK_EQUAL(x, string_type("a string"));
   }
   {
     regex_type x;
     literal<Iterator> l;
     l.value = regex_type("a regex");
-    BOOST_CHECK_NO_THROW(x = boost::get<regex_type>(l.value));
+    BOOST_CHECK_NO_THROW(x = yaul::get<regex_type>(l.value));
     BOOST_CHECK(std::regex_match("a regex", x));
   }
 }
